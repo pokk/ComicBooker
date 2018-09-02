@@ -1,16 +1,23 @@
+import dependenices.Deps.Global
+import dependenices.Deps.Presentation
+import dependenices.Versions.Android
+import resources.FeatureRes
+
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion Android.compileSdk
     defaultConfig {
         applicationId "com.no1.taiwan.comicbooker"
-        minSdkVersion 21
-        targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion Android.minSdk
+        targetSdkVersion Android.targetSdk
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        renderscriptTargetApi Android.targetSdk
+        renderscriptSupportModeEnabled true  // Enable RS support
     }
     buildTypes {
         release {
@@ -18,15 +25,59 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+        exclude 'META-INF/main.kotlin_module'
+    }
+    sourceSets {
+        main {
+            res.srcDirs += FeatureRes.dirs
+        }
+    }
+    dexOptions { javaMaxHeapSize "4g" }
+    testOptions { unitTests.returnDefaultValues = true }
+    lintOptions { abortOnError false }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    ext { coverageSourceDirs = 'src/test/java' }
+}
+
+androidExtensions { experimental = true }
+kotlin { experimental { coroutines "enable" } }
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+    mapDiagnosticLocations = true
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.0-alpha1'
-    implementation 'com.google.android.material:material:1.0.0-alpha1'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
+
+    //region Kotlin
+    implementation Global.kotlin
+    implementation Global.coroutine
+    implementation Global.coroutinesRx2
+    implementation Global.refelect
+    implementation Presentation.androidCoroutine
+    //endregion
+
+    //region DI
+    implementation Global.kodeinAndroidX
+    implementation Global.kodeinJVM
+    //endregion
+
+    //region Androidx SDK
+    implementation Presentation.dexTool
+    implementation Presentation.appcompat
+    implementation Presentation.materialDessign
+    implementation Presentation.recyclerview
+    implementation Presentation.cardview
+    implementation Presentation.annot
+    implementation Presentation.constraintLayout
+    implementation Presentation.coordinatorLayout
+    implementation Presentation.navigationUi
+    implementation Presentation.navigationFragment
+    //endregion
 }
