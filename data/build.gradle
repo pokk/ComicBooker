@@ -1,3 +1,5 @@
+import dependenices.Deps.Data
+import dependenices.Deps.Global
 import dependenices.Versions.Android
 
 apply plugin: 'com.android.library'
@@ -37,6 +39,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':domain')
     implementation project(':ext')
+
+    implementation Global.shaver
+
+    implementation Data.mapper
 }
 
 tasks.withType(Test) { jacoco.includeNoLocationClasses = true }
