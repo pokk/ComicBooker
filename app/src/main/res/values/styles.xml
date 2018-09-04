@@ -10,7 +10,7 @@
         <item name="colorAccent">?themeColorAccent</item>
         <item name="android:textColorPrimary">?themeTextColorPrimary</item>
 
-        <item name="android:fontFamily">?themeFont</item>
+        <!--<item name="android:fontFamily">?themeFont</item>-->
         <!-- target android sdk versions < 26 and > 14 if theme other than AppCompat -->
         <!--<item name="fontFamily">?themeFont</item>-->
         <item name="android:textColor">?themeTextColorPrimary</item>
@@ -25,31 +25,5 @@
 
     <style name="MainTheme.Transitions">
         <item name="android:windowContentTransitions">true</item>
-    </style>
-
-    <!-- Splash -->
-    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
-        <!-- The view fit to until the state bar -->
-        <item name="android:windowTranslucentStatus">true</item>
-        <!-- The view fit to until the navigation bar -->
-        <item name="android:windowTranslucentNavigation">true</item>
-        <item name="android:windowBackground">@drawable/ic_launcher_background</item>
-        <!-- The Status bar Color -->
-        <!--<item name="themeColorPrimaryDark">@color/primaryDarkColor</item>-->
-        <!-- The Navigation bar Color -->
-        <!--<item name="android:navigationBarColor">?themeNavigationBarColor</item>-->
-    </style>
-
-    <style name="BookerTheme" parent="MainTheme">
-        <item name="themeColorPrimary">@color/colorPrimaryV1</item>
-        <item name="themeColorPrimaryLight">@color/colorPrimaryLightV1</item>
-        <item name="themeColorPrimaryDark">@color/colorPrimaryDarkV1</item>
-        <item name="themeColorAccent">@color/colorAccentV1</item>
-        <item name="themeTextColorPrimary">@color/colorPrimaryTextV1</item>
-        <item name="themeTextColorSecondary">@color/colorSecondaryTextV1</item>
-        <item name="themeColorSecondaryLight">@color/colorSecondaryLightV1</item>
-        <item name="themeColorSecondaryDark">@color/colorSecondaryDarkV1</item>
-        <item name="themeNavigationBarColor">@color/colorNavigationBarV1</item>
-        <item name="themeBackgroundColor">@color/colorBackgroundV1</item>
     </style>
 </resources>
