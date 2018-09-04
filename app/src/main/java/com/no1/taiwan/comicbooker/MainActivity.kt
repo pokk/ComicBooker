@@ -13,12 +13,12 @@ class MainActivity : AppCompatActivity() {
                 message.setText(R.string.title_home)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_dashboard -> {
-                message.setText(R.string.title_dashboard)
+            R.id.navigation_library -> {
+                message.setText(R.string.title_library)
                 return@OnNavigationItemSelectedListener true
             }
-            R.id.navigation_notifications -> {
-                message.setText(R.string.title_notifications)
+            R.id.navigation_account -> {
+                message.setText(R.string.title_account)
                 return@OnNavigationItemSelectedListener true
             }
         }
