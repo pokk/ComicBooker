@@ -62,14 +62,57 @@ dependencies {
     //region Kotlin
     implementation Global.kotlin
     implementation Global.coroutine
-    implementation Global.coroutinesRx2
     implementation Global.refelect
     implementation Presentation.androidCoroutine
+    //endregion
+
+    //region Jieyi Libraries
+    implementation Presentation.knifer
+    implementation Presentation.arv
+    implementation Presentation.quickDialog
+    //endregion
+
+    //region Anko
+    implementation Presentation.anko
+    implementation Presentation.ankoSdk25
+    implementation Presentation.ankoV7
+    implementation Presentation.ankoCoroutine
+    implementation Presentation.ankoV7Coroutine
     //endregion
 
     //region DI
     implementation Global.kodeinAndroidX
     implementation Global.kodeinJVM
+    //endregion
+
+    //region Mapper
+    implementation Presentation.modelMapper
+    //endregion
+
+    //region Rx Bus
+    implementation(Presentation.rxBus) {
+        exclude group: 'com.jakewharton.timber', module: 'timber'
+        exclude group: 'io.reactivex.rxjava2', module: 'rxandroid'
+    }
+    //endregion
+
+    //region Internet & Image loading
+    implementation Presentation.retrofit2
+    implementation Presentation.retrofit2Gson
+    implementation(Presentation.retrofit2Courtine) {
+        exclude group: 'org.jetbrains.kotlinx', module: 'kotlinx-coroutines-core'
+    }
+    implementation Presentation.okhttpLogging
+    implementation Presentation.glide
+    //endregion
+
+    //region UI
+    implementation Presentation.loading
+    //endregion
+
+    //region Android extension
+    implementation Presentation.ktx
+    implementation Presentation.lifecycle
     //endregion
 
     //region Androidx SDK

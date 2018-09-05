@@ -17,6 +17,10 @@ class MainActivity : AppCompatActivity() {
                 message.setText(R.string.title_library)
                 return@OnNavigationItemSelectedListener true
             }
+            R.id.navigation_book -> {
+                message.setText(R.string.title_browse)
+                return@OnNavigationItemSelectedListener true
+            }
             R.id.navigation_account -> {
                 message.setText(R.string.title_account)
                 return@OnNavigationItemSelectedListener true

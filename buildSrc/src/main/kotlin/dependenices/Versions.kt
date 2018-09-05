@@ -31,8 +31,8 @@ object Versions {
      * Related Kotlin lib version.
      */
     object Kotlin {
-        const val kotlinLib = "1.2.61"
-        const val kotlinCoroutine = "0.25.0"
+        const val kotlinLib = "1.3-M2"
+        const val kotlinCoroutine = "0.25.3"
     }
 
     /**
@@ -97,6 +97,7 @@ object Versions {
     object Network {
         const val glide = "4.8.0"
         const val retrofit2 = "2.4.0"
+        const val adapterCoroutine = "1.0.0"
         const val okhttp3 = "3.10.0"
     }
 

@@ -69,13 +69,11 @@ object Deps {
         const val lifecycle = "androidx.lifecycle:lifecycle-extensions:${Versions.KotlinAndroidExt.aacLifecycle}"
 
         const val rxBus = "com.hwangjr.rxbus:rxbus:${Versions.RxDep.rxBus}"
-        const val rxLifecycle = "com.trello.rxlifecycle2:rxlifecycle-kotlin:${Versions.RxDep.rxLifecycle2}"
-        const val rxLifecycleComponent = "com.trello.rxlifecycle2:rxlifecycle-components:${Versions.RxDep.rxLifecycle2}"
         const val rxPermission = "com.tbruyelle.rxpermissions2:rxpermissions:${Versions.RxDep.rxPermission2}"
 
-        const val retrofit2 = "com.squareup.retrofit2:retrofit:${Versions.Network.retrofit2}"
-        const val retrofit2Gson = "com.squareup.retrofit2:converter-gson:${Versions.Network.retrofit2}"
-        const val retrofit2RxJava2 = "com.squareup.retrofit2:adapter-rxjava2:${Versions.Network.retrofit2}"
+        const val retrofit2 = Data.retrofit2
+        const val retrofit2Gson = Data.retrofit2ConverterGson
+        const val retrofit2Courtine = Data.retrofit2AdapterCoroutine
         const val okhttpLogging = "com.squareup.okhttp3:logging-interceptor:${Versions.Network.okhttp3}"
 
         const val glide = "com.github.bumptech.glide:glide:${Versions.Network.glide}"
@@ -88,15 +86,12 @@ object Deps {
         const val firebaseMLImageLabel =
             "com.google.firebase:firebase-ml-vision-image-label-model:${Versions.Firebase.mlImageLabel}"
 
-        const val tensorflowLite = "org.tensorflow:tensorflow-lite:${Versions.TensorFlow.lite}"
-
-        const val dbflow = "com.github.Raizlabs.DBFlow:dbflow:${Versions.Database.dbflow}"
-        const val dbflowRxJava2KotlinExt =
-            "com.github.Raizlabs.DBFlow:dbflow-rx2-kotlinextensions:${Versions.Database.dbflow}"
+        const val dbflow = Data.dbflow
+        const val dbflowRxJava2KotlinExt = Data.dbflowRxJava2
 
         const val cloudinary = "com.cloudinary:cloudinary-android:${Versions.CloudStore.cloudinary}"
 
-        const val modelMapper = "org.modelmapper:modelmapper:${Versions.Mapping.modelmapper}"
+        const val modelMapper = Data.mapper
 
         const val arv = "com.devrapid.jieyi:adaptiverecyclerview:${Versions.ViewComponent.adaptiveRecyclerView}"
 
@@ -136,9 +131,7 @@ object Deps {
     /**
      * The necessary libs only for the domain layer.
      */
-    object Domain {
-        const val rxLifecycle = "com.trello.rxlifecycle2:rxlifecycle-kotlin:${Versions.RxDep.rxLifecycle2}"
-    }
+    object Domain
 
     /**
      * The necessary unit test libs only for the domain layer.
@@ -154,17 +147,18 @@ object Deps {
         // Internet
         const val retrofit2 = "com.squareup.retrofit2:retrofit:${Versions.Network.retrofit2}"
         const val retrofit2ConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.Network.retrofit2}"
-        const val retrofit2AdapterRxJava2 = "com.squareup.retrofit2:adapter-rxjava2:${Versions.Network.retrofit2}"
-        const val okhttp3InterceptorLog = "com.squareup.okhttp3:logging-interceptor:${Versions.Network.okhttp3}"
+        const val retrofit2AdapterCoroutine =
+            "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:${Versions.Network.adapterCoroutine}"
         // Mapper
         const val mapper = "org.modelmapper:modelmapper:${Versions.Mapping.modelmapper}"
         // Database
         const val dbflowProcessor = "com.github.Raizlabs.DBFlow:dbflow-processor:${Versions.Database.dbflow}"
         const val dbflowCore = "com.github.Raizlabs.DBFlow:dbflow-core:${Versions.Database.dbflow}"
-        const val dbflow = Presentation.dbflow
+        const val dbflow = "com.github.Raizlabs.DBFlow:dbflow:${Versions.Database.dbflow}"
         const val dbflowKotlinExt = "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${Versions.Database.dbflow}"
         const val dbflowRxJava2 = "com.github.Raizlabs.DBFlow:dbflow-rx2:${Versions.Database.dbflow}"
-        const val dbflowRxJava2KotlinExt = Presentation.dbflowRxJava2KotlinExt
+        const val dbflowRxJava2KotlinExt =
+            "com.github.Raizlabs.DBFlow:dbflow-rx2-kotlinextensions:${Versions.Database.dbflow}"
         // sql-cipher database encryption (optional)
         const val dbflowSqlEncrypt = "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${Versions.Database.dbflow}"
         const val dbflowSqlCipher = "net.zetetic:android-database-sqlcipher:${Versions.Database.dbflow}@aar"
@@ -182,7 +176,7 @@ object Deps {
      * The necessary unit test libs only for the data layer.
      */
     object DataTest {
-        const val robolectric = "org.robolectric:robolectric:${Versions.Test.robolectric}"
+        const val robolectric = PresentationTest.robolectric
     }
     //endregion
 

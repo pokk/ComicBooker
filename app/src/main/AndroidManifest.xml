@@ -2,6 +2,7 @@
 <manifest
     package="com.no1.taiwan.comicbooker"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -13,7 +14,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/BookerTheme">
+        android:theme="@style/BookerTheme"
+        tools:replace="android:label">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">

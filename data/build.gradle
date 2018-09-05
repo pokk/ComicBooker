@@ -40,9 +40,17 @@ dependencies {
     implementation project(':domain')
     implementation project(':ext')
 
+    implementation Global.kotlin
     implementation Global.shaver
 
     implementation Data.mapper
+
+    //region Internet & Image loading
+    implementation Data.retrofit2
+    implementation(Data.retrofit2AdapterCoroutine) {
+        exclude group: 'org.jetbrains.kotlinx', module: 'kotlinx-coroutines-core'
+    }
+    //endregion
 }
 
 tasks.withType(Test) { jacoco.includeNoLocationClasses = true }
