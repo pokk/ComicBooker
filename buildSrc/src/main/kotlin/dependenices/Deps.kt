@@ -185,8 +185,10 @@ object Deps {
      * The necessary libs only for the widget module.
      */
     object Widget {
-        const val arv = "com.devrapid.jieyi:adaptiverecyclerview:${Versions.ViewComponent.adaptiveRecyclerView}"
-        const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.AndroidComponent.androidx}"
+        const val appcompat = Presentation.appcompat
+
+        const val quickDialog = Presentation.quickDialog
+        const val constraintLayout = Presentation.constraintLayout
     }
 
     /**

@@ -1,6 +1,5 @@
 import dependenices.Deps.Widget
 import dependenices.Deps.Global
-import dependenices.Deps.Presentation
 import dependenices.Versions
 
 apply plugin: 'com.android.library'
@@ -42,7 +41,9 @@ dependencies {
 
     implementation Global.kotlin
 
-    implementation Presentation.appcompat
+    implementation Widget.appcompat
+    implementation Widget.quickDialog
+    implementation Widget.constraintLayout
 }
 
 tasks.withType(Test) { jacoco.includeNoLocationClasses = true }
