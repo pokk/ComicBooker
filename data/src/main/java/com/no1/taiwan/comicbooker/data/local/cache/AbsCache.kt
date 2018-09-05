@@ -1,7 +1,6 @@
-package com.no1.taiwan.comicbooker.data.datastores
+package com.no1.taiwan.comicbooker.data.local.cache
 
 import com.devrapid.kotlinshaver.cast
-import com.no1.taiwan.comicbooker.data.local.cache.Cache
 
 /**
  * An abstract class for this project and pre-defined the some functions for this app keeping the data.

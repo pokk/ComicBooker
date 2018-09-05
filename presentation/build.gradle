@@ -110,6 +110,22 @@ dependencies {
     implementation Presentation.loading
     //endregion
 
+    //region Firebase & Database
+    implementation(Presentation.firebaseCore) {
+        exclude group: 'com.android.support'
+    }
+    implementation(Presentation.firebaseDB) {
+        exclude group: 'com.android.support'
+    }
+    implementation(Presentation.firebaseVision) {
+        exclude group: 'com.android.support'
+    }
+    implementation(Presentation.firebaseMLImageLabel) {
+        exclude group: 'com.android.support'
+    }
+//    implementation Presentation.cloudinary
+    //endregion
+
     //region Android extension
     implementation Presentation.ktx
     implementation Presentation.lifecycle

@@ -3,7 +3,7 @@ package com.no1.taiwan.comicbooker.internal.di
 import android.view.View
 import androidx.lifecycle.ViewModel
 import androidx.recyclerview.widget.RecyclerView
-import com.no1.taiwan.comicbooker.data.datas.mappers.DataMapper
+import com.no1.taiwan.comicbooker.data.datas.DataMapper
 
 typealias ViewModelEntry = Pair<Class<out ViewModel>, ViewModel>
 typealias ViewModelEntries = Set<ViewModelEntry>

@@ -14,9 +14,9 @@ import androidx.lifecycle.ViewModelProvider
 import com.devrapid.kotlinknifer.hideSoftKeyboard
 import com.devrapid.kotlinshaver.castOrNull
 import com.no1.taiwan.comicbooker.R
-import com.no1.taiwan.comicbooker.components.viewmodel.ViewModelFactory
 import com.no1.taiwan.comicbooker.internal.di.ViewModelEntries
 import com.no1.taiwan.comicbooker.internal.di.dependency.fragment.SuperFragmentModule.fragmentModule
+import com.no1.taiwan.comicbooker.widget.viewmodel.ViewModelFactory
 import org.jetbrains.anko.findOptional
 import org.jetbrains.anko.sdk25.coroutines.onClick
 import org.kodein.di.Kodein
