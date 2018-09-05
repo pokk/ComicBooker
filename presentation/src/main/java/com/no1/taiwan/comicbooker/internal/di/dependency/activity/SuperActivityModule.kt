@@ -1,5 +1,6 @@
 package com.no1.taiwan.comicbooker.internal.di.dependency.activity
 
+import com.no1.taiwan.comicbooker.internal.di.dependency.activity.MainModule.mainProvider
 import org.kodein.di.Kodein.Module
 
 /**
@@ -8,5 +9,7 @@ import org.kodein.di.Kodein.Module
 object SuperActivityModule {
     fun activityModule() = Module("All Activities Module") {
         // Import all of the activity modules.
+
+        import(mainProvider())
     }
 }

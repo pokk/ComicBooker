@@ -1,12 +1,13 @@
-package com.no1.taiwan.comicbooker
+package com.no1.taiwan.comicbooker.features.main
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.no1.taiwan.comicbooker.R
+import com.no1.taiwan.comicbooker.bases.BaseActivity
 import kotlinx.android.synthetic.main.activity_main.message
 import kotlinx.android.synthetic.main.activity_main.navigation
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity() {
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
@@ -29,10 +30,10 @@ class MainActivity : AppCompatActivity() {
         false
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
+    override fun init(savedInstanceState: Bundle?) {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
+
+    override fun provideLayoutId() = R.layout.activity_main
+
 }
