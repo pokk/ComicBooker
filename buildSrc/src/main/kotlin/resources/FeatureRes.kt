@@ -6,6 +6,7 @@ package resources
 object FeatureRes {
     val dirs = arrayOf(
         "src/main/res-features",
-        "src/main/res-theme"
+        "src/main/res-theme",
+        "src/main/res-main"
     )
 }
