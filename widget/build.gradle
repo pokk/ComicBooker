@@ -1,3 +1,4 @@
+import dependenices.Deps.Widget
 import dependenices.Deps.Global
 import dependenices.Deps.Presentation
 import dependenices.Versions

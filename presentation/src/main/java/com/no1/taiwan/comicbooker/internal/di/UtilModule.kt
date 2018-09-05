@@ -16,9 +16,9 @@ import org.modelmapper.ModelMapper
  */
 object UtilModule {
     fun utilProvider(context: Context) = Module("Util Module") {
-        /** ViewModel Set for [com.no1.taiwan.comicbooker.components.viewmodel.ViewModelFactory] */
+        /** ViewModel Set for [com.no1.taiwan.comicbooker.widget.viewmodel.ViewModelFactory] */
         bind() from setBinding<ViewModelEntry>()
-        /** Mapper Set for [smash.ks.com.data.datas.mappers.Mapper] */
+        /** Mapper Set for [com.no1.taiwan.comicbooker.data.datas.mappers.Mapper] */
         bind() from setBinding<DataMapperEntry>()
 
         bind<ModelMapper>() with instance(ModelMapper())

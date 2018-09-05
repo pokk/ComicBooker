@@ -182,6 +182,21 @@ object Deps {
 
     //region Ext
     /**
+     * The necessary libs only for the widget module.
+     */
+    object Widget {
+        const val arv = "com.devrapid.jieyi:adaptiverecyclerview:${Versions.ViewComponent.adaptiveRecyclerView}"
+        const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.AndroidComponent.androidx}"
+    }
+
+    /**
+     * The necessary unit test libs only for the widget module.
+     */
+    object WidgetTest
+    //endregion
+
+    //region Ext
+    /**
      * The necessary libs only for the extension module.
      */
     object Ext

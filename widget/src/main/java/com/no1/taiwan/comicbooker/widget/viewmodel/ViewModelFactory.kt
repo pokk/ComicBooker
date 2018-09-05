@@ -1,4 +1,4 @@
-package com.no1.taiwan.comicbooker.components.viewmodel
+package com.no1.taiwan.comicbooker.widget.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.ViewModel
