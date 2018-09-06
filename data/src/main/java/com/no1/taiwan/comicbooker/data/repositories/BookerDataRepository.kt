@@ -19,8 +19,4 @@ class BookerDataRepository constructor(
     private val local: DataStore,
     private val remote: DataStore,
     private val mapperPool: MapperPool
-) : DataRepository {
-    companion object {
-        const val SWITCH = false
-    }
-}
+) : DataRepository
