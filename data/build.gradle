@@ -34,7 +34,7 @@ android {
     lintOptions { abortOnError false }
     ext { coverageSourceDirs = 'src/test/java' }
 }
-kotlin { experimental { coroutines "enable" } }
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(':domain')

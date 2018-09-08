@@ -31,7 +31,13 @@ class MainActivity : AdvActivity<MainViewModel>() {
         navigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
         launch {
             ui {
-                val a = vm.fetchTest()
+                var a: Boolean? = null
+                try {
+                    a = vm.fetchTest()
+                }
+                catch (e: Exception) {
+                    logw(e.message)
+                }
                 logw(a)
             }
         }
