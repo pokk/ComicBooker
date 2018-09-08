@@ -6,7 +6,9 @@ import com.no1.taiwan.comicbooker.data.local.services.BookerDatabase
 import com.no1.taiwan.comicbooker.data.local.v1.BookerRoom
 import com.no1.taiwan.comicbooker.data.remote.RestfulApiFactory
 import com.no1.taiwan.comicbooker.data.remote.config.BookerConfig
+import com.no1.taiwan.comicbooker.data.remote.services.BookerFirebase
 import com.no1.taiwan.comicbooker.data.remote.services.BookerService
+import com.no1.taiwan.comicbooker.data.remote.v1.BookerFirebaseImpl
 import com.no1.taiwan.comicbooker.internal.di.NetModule.netProvider
 import org.kodein.di.Kodein.Module
 import org.kodein.di.generic.bind
@@ -44,7 +46,7 @@ object ServiceModule {
                 build()
             }.create(BookerService::class.java)
         }
-//        bind<BookerFirebase>() with singleton { KsFirebaseImpl(instance(), instance()) }
+        bind<BookerFirebase>() with singleton { BookerFirebaseImpl() }
     }
 
     /**

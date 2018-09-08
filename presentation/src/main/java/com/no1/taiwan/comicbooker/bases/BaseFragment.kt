@@ -19,7 +19,7 @@ import com.no1.taiwan.comicbooker.internal.di.dependency.fragment.SuperFragmentM
 import com.no1.taiwan.comicbooker.widget.viewmodel.ViewModelFactory
 import org.jetbrains.anko.findOptional
 import org.jetbrains.anko.sdk25.coroutines.onClick
-import org.kodein.di.Kodein
+import org.kodein.di.Kodein.Companion.lazy
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.closestKodein
 import org.kodein.di.generic.bind
@@ -32,7 +32,7 @@ import org.kodein.di.generic.singleton
  */
 abstract class BaseFragment<out A : BaseActivity> : Fragment(), KodeinAware {
     override val kodeinContext get() = kcontext(requireActivity())
-    override val kodein = Kodein.lazy {
+    override val kodein = lazy {
         extend(parentKodein)
         /* fragment specific bindings */
         import(fragmentModule())

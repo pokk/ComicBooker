@@ -1,6 +1,8 @@
 package com.no1.taiwan.comicbooker.features.main
 
 import android.os.Bundle
+import com.devrapid.kotlinknifer.logw
+import com.devrapid.kotlinknifer.ui
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.no1.taiwan.comicbooker.R
 import com.no1.taiwan.comicbooker.bases.AdvActivity
@@ -27,6 +29,12 @@ class MainActivity : AdvActivity<MainViewModel>() {
 
     override fun init(savedInstanceState: Bundle?) {
         navigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
+        launch {
+            ui {
+                val a = vm.fetchTest()
+                logw(a)
+            }
+        }
     }
 
     override fun provideLayoutId() = R.layout.activity_main

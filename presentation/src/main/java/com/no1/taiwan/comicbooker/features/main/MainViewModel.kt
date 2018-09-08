@@ -9,5 +9,5 @@ class MainViewModel(
 ) : ViewModel() {
     val test by lazy { MutableLiveData<Boolean>() }
 
-    fun fetchTest() = usecase.execute(TestUsecase.Request())
+    suspend fun fetchTest() = usecase.execute(TestUsecase.Request()).await()
 }
