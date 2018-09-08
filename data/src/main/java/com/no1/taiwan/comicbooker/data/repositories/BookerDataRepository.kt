@@ -22,6 +22,6 @@ class BookerDataRepository constructor(
     private val mapperPool: MapperPool
 ) : DataRepository {
     override fun fetchTest(): Deferred<Boolean> {
-        return
+        return remote.retrieveTest()
     }
 }

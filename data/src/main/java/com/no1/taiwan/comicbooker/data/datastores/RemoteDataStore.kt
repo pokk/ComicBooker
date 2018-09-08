@@ -12,7 +12,5 @@ class RemoteDataStore(
     private val bookerService: BookerService,
     private val bookerFirebase: BookerFirebase
 ) : DataStore {
-    override fun retrieveTest(): Deferred<Boolean> {
-        return bookerService
-    }
+    override fun retrieveTest(): Deferred<Boolean> = bookerService.retrieveTest(HashMap())
 }
