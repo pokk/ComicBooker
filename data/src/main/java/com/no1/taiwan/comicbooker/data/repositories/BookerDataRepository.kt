@@ -4,6 +4,7 @@ import com.no1.taiwan.comicbooker.data.datas.MapperPool
 import com.no1.taiwan.comicbooker.data.datastores.DataStore
 import com.no1.taiwan.comicbooker.data.local.cache.AbsCache
 import com.no1.taiwan.comicbooker.domain.repositories.DataRepository
+import kotlinx.coroutines.experimental.Deferred
 
 /**
  * The data repository for being responsible for selecting an appropriate data store to access
@@ -19,4 +20,8 @@ class BookerDataRepository constructor(
     private val local: DataStore,
     private val remote: DataStore,
     private val mapperPool: MapperPool
-) : DataRepository
+) : DataRepository {
+    override fun fetchTest(): Deferred<Boolean> {
+        return
+    }
+}

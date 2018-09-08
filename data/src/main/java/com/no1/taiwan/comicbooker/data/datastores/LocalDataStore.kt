@@ -8,4 +8,6 @@ import com.no1.taiwan.comicbooker.data.local.services.BookerDatabase
  */
 class LocalDataStore(
     private val database: BookerDatabase
-) : DataStore
+) : DataStore {
+    override fun retrieveTest() = throw UnsupportedOperationException()
+}
