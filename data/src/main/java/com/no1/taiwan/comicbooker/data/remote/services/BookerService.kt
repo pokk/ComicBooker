@@ -1,8 +1,6 @@
 package com.no1.taiwan.comicbooker.data.remote.services
 
-import com.no1.taiwan.comicbooker.data.remote.config.BookerConfig.Companion.API_REQUEST
 import com.no1.taiwan.comicbooker.domain.Parameters
-import kotlinx.coroutines.experimental.Deferred
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 
@@ -11,7 +9,8 @@ import retrofit2.http.QueryMap
  */
 interface BookerService {
     //region Fake
-    @GET("$API_REQUEST/test/api")
+//    @GET("$API_REQUEST/test/api")
+    @GET("/api/v1/item/list?page=1&limit=20&partnership_company_id=1019")
     fun retrieveTest(@QueryMap params: Parameters): Deferred<Boolean>
     //endregion
 }

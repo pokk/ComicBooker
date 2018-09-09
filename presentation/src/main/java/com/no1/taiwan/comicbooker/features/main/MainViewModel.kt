@@ -1,7 +1,8 @@
 package com.no1.taiwan.comicbooker.features.main
 
 import androidx.lifecycle.ViewModel
-import com.no1.taiwan.comicbooker.domain.BookerResponse
+import com.devrapid.kotlinknifer.ui
+import com.no1.taiwan.comicbooker.domain.BookerResponse.Loading
 import com.no1.taiwan.comicbooker.domain.usecases.TestUsecase
 import com.no1.taiwan.comicbooker.ext.ResponseLiveData
 
@@ -10,8 +11,10 @@ class MainViewModel(
 ) : ViewModel() {
     val test by lazy { ResponseLiveData<Boolean>() }
 
-    suspend fun fetchTest(): Boolean {
-        test.value = BookerResponse.Loading()
-        return usecase.execute(TestUsecase.Request()).await()
+    fun fetchTest() {
+        ui {
+            test.value = Loading()
+            test.value = usecase.execute(TestUsecase.Request())
+        }
     }
 }
