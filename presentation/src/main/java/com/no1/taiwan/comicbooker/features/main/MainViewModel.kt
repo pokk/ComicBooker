@@ -12,8 +12,8 @@ class MainViewModel(
     val test by lazy { ResponseLiveData<Boolean>() }
 
     fun fetchTest() {
+        test.value = Loading()
         ui {
-            test.value = Loading()
             test.value = usecase.execute(TestUsecase.Request())
         }
     }
