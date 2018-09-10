@@ -2,6 +2,7 @@ package com.no1.taiwan.comicbooker.features.main
 
 import androidx.lifecycle.ViewModel
 import com.devrapid.kotlinknifer.ui
+import com.no1.taiwan.comicbooker.domain.BookerResponse
 import com.no1.taiwan.comicbooker.domain.BookerResponse.Loading
 import com.no1.taiwan.comicbooker.domain.usecases.TestUsecase
 import com.no1.taiwan.comicbooker.ext.ResponseLiveData
@@ -16,5 +17,6 @@ class MainViewModel(
         ui {
             test.value = usecase.execute(TestUsecase.Request())
         }
+        test.value = BookerResponse.Completed()
     }
 }

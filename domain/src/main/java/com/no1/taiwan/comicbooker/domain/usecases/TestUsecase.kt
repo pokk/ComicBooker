@@ -14,6 +14,9 @@ class TestUsecase(
     override suspend fun fetchCase() = try {
         Success(repository.fetchTest().await())
     }
+    catch (cancel: CancellationException) {
+        Error<Boolean>(msg = cancel.message.orEmpty())
+    }
     catch (e: Exception) {
         Error<Boolean>(msg = e.message.orEmpty())
     }

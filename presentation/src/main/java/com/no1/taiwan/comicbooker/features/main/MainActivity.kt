@@ -1,6 +1,7 @@
 package com.no1.taiwan.comicbooker.features.main
 
 import android.os.Bundle
+import com.devrapid.kotlinknifer.logw
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.no1.taiwan.comicbooker.R
 import com.no1.taiwan.comicbooker.bases.AdvActivity
@@ -65,7 +66,7 @@ class MainActivity : AdvActivity<MainViewModel>(), LoadView {
         vm.fetchTest()
         observe(vm.test) {
             it.peelResponse(this) {
-
+                logw(it)
             }
         }
     }
