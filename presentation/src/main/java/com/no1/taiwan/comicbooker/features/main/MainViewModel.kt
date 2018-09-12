@@ -5,8 +5,7 @@ import com.no1.taiwan.comicbooker.domain.BookerResponse
 import com.no1.taiwan.comicbooker.domain.BookerResponse.Loading
 import com.no1.taiwan.comicbooker.domain.usecases.TestUsecase
 import com.no1.taiwan.comicbooker.ext.ResponseLiveData
-import kotlinx.coroutines.android.UI
-import kotlinx.coroutines.launch
+import com.no1.taiwan.comicbooker.ext.ui
 
 class MainViewModel(
     private val usecase: TestUsecase
@@ -15,7 +14,7 @@ class MainViewModel(
 
     fun fetchTest() {
         test.value = Loading()
-        launch(UI) {
+        ui {
             test.value = usecase.execute(TestUsecase.Request())
         }
         test.value = BookerResponse.Completed()
