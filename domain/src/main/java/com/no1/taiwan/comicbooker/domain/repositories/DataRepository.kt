@@ -1,6 +1,6 @@
 package com.no1.taiwan.comicbooker.domain.repositories
 
-import kotlinx.coroutines.experimental.Deferred
+import kotlinx.coroutines.Deferred
 
 /**
  * This interface will be the similar to [com.no1.taiwan.comicbooker.data.datastores.DataStore] .

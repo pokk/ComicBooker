@@ -32,7 +32,7 @@ object Versions {
      */
     object Kotlin {
         const val kotlinLib = "1.3-M2"
-        const val kotlinCoroutine = "0.25.3"
+        const val kotlinCoroutine = "0.25.3-eap13"
     }
 
     /**

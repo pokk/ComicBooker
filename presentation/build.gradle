@@ -16,8 +16,8 @@ android {
         targetSdkVersion Android.targetSdk
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        renderscriptTargetApi Android.targetSdk
-        renderscriptSupportModeEnabled true  // Enable RS support
+//        renderscriptTargetApi Android.targetSdk
+//        renderscriptSupportModeEnabled true  // Enable RS support
     }
     buildTypes {
         release {

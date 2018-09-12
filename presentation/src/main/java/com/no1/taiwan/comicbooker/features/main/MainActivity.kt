@@ -55,6 +55,7 @@ class MainActivity : AdvActivity<MainViewModel>(), LoadView {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_account -> {
+                vm.abort()
                 return@OnNavigationItemSelectedListener true
             }
         }

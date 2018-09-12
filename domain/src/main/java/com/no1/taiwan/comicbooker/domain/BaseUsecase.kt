@@ -1,6 +1,7 @@
 package com.no1.taiwan.comicbooker.domain
 
 import com.no1.taiwan.comicbooker.domain.BaseUsecase.RequestValues
+import kotlinx.coroutines.Job
 
 /**
  * Abstract class for a Use Case (Interactor in terms of Clean Architecture).
@@ -16,6 +17,9 @@ import com.no1.taiwan.comicbooker.domain.BaseUsecase.RequestValues
 abstract class BaseUsecase<R : RequestValues> {
     /** Provide a common parameter variable for the children class. */
     var requestValues: R? = null
+    protected val parentJob by lazy { Job() }
+
+    open fun abort() = parentJob.cancel()
 
     /** Interface for wrap a data for passing to a request.*/
     interface RequestValues

@@ -1,6 +1,7 @@
 package com.no1.taiwan.comicbooker.data.remote.services
 
 import com.no1.taiwan.comicbooker.domain.Parameters
+import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
 import retrofit2.http.QueryMap
 
