@@ -148,7 +148,7 @@ object Deps {
         const val retrofit2 = "com.squareup.retrofit2:retrofit:${Versions.Network.retrofit2}"
         const val retrofit2ConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.Network.retrofit2}"
         const val retrofit2AdapterCoroutine =
-            "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-experimental-adapter:${Versions.Network.adapterCoroutine}"
+            "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.Network.adapterCoroutine}"
         // Mapper
         const val mapper = "org.modelmapper:modelmapper:${Versions.Mapping.modelmapper}"
         // Database

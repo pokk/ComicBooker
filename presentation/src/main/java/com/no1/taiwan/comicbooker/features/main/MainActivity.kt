@@ -6,7 +6,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.no1.taiwan.comicbooker.R
 import com.no1.taiwan.comicbooker.bases.AdvActivity
 import com.no1.taiwan.comicbooker.bases.LoadView
-import com.no1.taiwan.comicbooker.ext.observe
+import com.no1.taiwan.comicbooker.ext.observeNonNull
 import com.no1.taiwan.comicbooker.ext.peelResponse
 import kotlinx.android.synthetic.main.activity_main.navigation
 
@@ -65,7 +65,7 @@ class MainActivity : AdvActivity<MainViewModel>(), LoadView {
     override fun init(savedInstanceState: Bundle?) {
         navigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
         vm.fetchTest()
-        observe(vm.test) {
+        observeNonNull(vm.test) {
             it.peelResponse(this) {
                 logw(it)
             }

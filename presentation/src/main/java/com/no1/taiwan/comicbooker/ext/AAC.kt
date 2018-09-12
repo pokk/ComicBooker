@@ -96,16 +96,15 @@ private fun <D> BookerResponse<D>.peelResponseOptions(
     successBlock: ((D) -> Unit)? = null
 ) = also {
     when (it) {
-        is BookerResponse.Loading<*> -> if (isShowLoading) loadView.showLoading()
-        is BookerResponse.Success<D> -> {
+        is Loading<*> -> if (isShowLoading) loadView.showLoading()
+        is Success<D> -> {
             it.data?.let { successBlock?.invoke(it) }
             if (isShowLoading && isHideLoading) loadView.hideLoading()
-        }
-        is BookerResponse.Completed<*> -> {
+
             if (isShowLoading) loadView.hideLoading()
             completedBlock?.invoke()
         }
-        is BookerResponse.Error<*> -> {
+        is Error<*> -> {
             if (isShowLoading) loadView.hideLoading()
             if (isShowError) loadView.showError(it.msg)
             errorBlock?.invoke(it.msg)

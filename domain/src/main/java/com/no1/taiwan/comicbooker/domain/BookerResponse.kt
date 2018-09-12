@@ -21,9 +21,9 @@ sealed class BookerResponse<T> constructor(val data: T? = null) {
     class Success<T>(data: T? = null) : BookerResponse<T>(data)
 
     /**
-     * A request complete getting a result from a remote/local service.
+     * A request success in translating getting a result from a remote/local service.
      */
-    class Completed<T>(data: T? = null) : BookerResponse<T>(data)
+    class Translating<T, R>(data: T? = null, var newData: R? = null) : BookerResponse<T>(data)
 
     /**
      * A request sent then a remote/local service has happened an error.
