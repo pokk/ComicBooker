@@ -2,21 +2,20 @@ package com.no1.taiwan.comicbooker.widget.dialog
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
+import com.devrapid.dialogbuilder.support.DialogFragmentTemplate.Builder
 import com.devrapid.dialogbuilder.support.QuickDialogFragment
 import com.no1.taiwan.comicbooker.widget.R
 
-class LoadingDialog {
-    companion object {
-        fun getinstance(fragment: Fragment): QuickDialogFragment {
-            return QuickDialogFragment.Builder(fragment) {
-                viewResCustom = R.layout.dialog_loading
-            }.build()
-        }
+object LoadingDialog {
+    fun getInstance(fragment: Fragment) = QuickDialogFragment.Builder(fragment) {
+        builder()
+    }.build()
 
-        fun getinstance(activity: AppCompatActivity): QuickDialogFragment {
-            return QuickDialogFragment.Builder(activity) {
-                viewResCustom = R.layout.dialog_loading
-            }.build()
-        }
+    fun getInstance(activity: AppCompatActivity) = QuickDialogFragment.Builder(activity) {
+        builder()
+    }.build()
+
+    private fun Builder.builder() {
+        viewResCustom = R.layout.dialog_loading
     }
 }

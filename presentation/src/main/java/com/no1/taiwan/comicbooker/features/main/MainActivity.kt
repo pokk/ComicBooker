@@ -5,44 +5,11 @@ import com.devrapid.kotlinknifer.logw
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.no1.taiwan.comicbooker.R
 import com.no1.taiwan.comicbooker.bases.AdvActivity
-import com.no1.taiwan.comicbooker.bases.LoadView
 import com.no1.taiwan.comicbooker.ext.observeNonNull
 import com.no1.taiwan.comicbooker.ext.peelResponse
 import kotlinx.android.synthetic.main.activity_main.navigation
 
-class MainActivity : AdvActivity<MainViewModel>(), LoadView {
-    /**
-     * Show a view with a progress bar indicating a loading process.
-     */
-    override fun showLoading() {
-    }
-
-    /**
-     * Hide a loading view.
-     */
-    override fun hideLoading() {
-    }
-
-    /**
-     * Show a retry view in case of an error when retrieving data.
-     */
-    override fun showRetry() {
-    }
-
-    /**
-     * Hide a retry view shown if there was an error when retrieving data.
-     */
-    override fun hideRetry() {
-    }
-
-    /**
-     * Show an error message
-     *
-     * @param message A string representing an error.
-     */
-    override fun showError(message: String) {
-    }
-
+class MainActivity : AdvActivity<MainViewModel>() {
     private val navigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_home -> {
