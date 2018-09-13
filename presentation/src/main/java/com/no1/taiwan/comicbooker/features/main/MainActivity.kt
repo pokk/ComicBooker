@@ -22,7 +22,6 @@ class MainActivity : AdvActivity<MainViewModel>() {
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_account -> {
-                vm.abort()
                 return@OnNavigationItemSelectedListener true
             }
         }

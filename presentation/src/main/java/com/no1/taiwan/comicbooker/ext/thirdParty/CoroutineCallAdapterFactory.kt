@@ -1,4 +1,4 @@
-package com.no1.taiwan.comicbooker.ext.third
+package com.no1.taiwan.comicbooker.ext.thirdParty
 
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred

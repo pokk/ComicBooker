@@ -1,7 +1,7 @@
 package com.no1.taiwan.comicbooker.internal.di
 
 import android.content.Context
-import com.no1.taiwan.comicbooker.ext.third.CoroutineCallAdapterFactory
+import com.no1.taiwan.comicbooker.ext.thirdParty.CoroutineCallAdapterFactory
 import okhttp3.Cache
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
