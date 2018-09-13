@@ -6,6 +6,8 @@
     android:versionCode="1"
     android:versionName="1.0">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".App"
         android:allowBackup="true"
@@ -15,6 +17,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/BookerTheme"
+        android:usesCleartextTraffic="true"
         tools:replace="android:label">
         <activity
             android:name=".features.main.MainActivity"

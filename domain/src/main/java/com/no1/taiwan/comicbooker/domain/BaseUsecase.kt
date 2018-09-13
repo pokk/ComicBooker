@@ -19,7 +19,7 @@ abstract class BaseUsecase<R : RequestValues> {
     var requestValues: R? = null
     protected val parentJob by lazy { Job() }
 
-    open fun abort() = parentJob.cancel()
+    open fun abort() = parentJob.takeUnless { it.isCancelled }?.cancel() ?: true
 
     /** Interface for wrap a data for passing to a request.*/
     interface RequestValues

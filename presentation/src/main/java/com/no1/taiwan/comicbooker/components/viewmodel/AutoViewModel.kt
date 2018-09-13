@@ -1,7 +1,8 @@
 package com.no1.taiwan.comicbooker.components.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.devrapid.kotlinknifer.logw
+import com.devrapid.kotlinshaver.accessible
+import com.no1.taiwan.comicbooker.domain.DeferredUsecase
 
 open class AutoViewModel : ViewModel() {
     /**
@@ -11,8 +12,16 @@ open class AutoViewModel : ViewModel() {
      * prevent a leak of this ViewModel.
      */
     override fun onCleared() {
+        // Search all variables including private.
         this::class.java.declaredFields.forEach {
-            logw(it.type)
+            val usecaseSuperclass = it.type.superclass
+
+            // Get variables are the [DeferredUsecase] class for aborting the action.
+            if (DeferredUsecase::class.java == usecaseSuperclass) {
+                val method = usecaseSuperclass.getMethod("abort")
+                it.accessible()
+                method.invoke(it.get(this))
+            }
         }
     }
 }

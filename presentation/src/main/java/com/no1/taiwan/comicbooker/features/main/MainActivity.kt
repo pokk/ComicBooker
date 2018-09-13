@@ -30,12 +30,17 @@ class MainActivity : AdvActivity<MainViewModel>() {
 
     override fun init(savedInstanceState: Bundle?) {
         navigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
-        vm.fetchTest()
         observeNonNull(vm.test) {
             it.peelResponse(this) {
                 logw(it)
             }
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        vm.fetchTest()
     }
 
     override fun provideLayoutId() = R.layout.activity_main
