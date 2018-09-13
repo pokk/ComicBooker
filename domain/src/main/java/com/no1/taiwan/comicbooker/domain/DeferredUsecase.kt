@@ -11,9 +11,8 @@ abstract class DeferredUsecase<T, R : BaseUsecase.RequestValues> : BaseUsecase<R
         parameter?.let { requestValues = it }
 
         // Wrapper async again for wrapping the result into [BookerResponse].
-        async(IO, parent = parentJob) {
             try {
-                Success(fetchCase())
+                async(IO, parent = parentJob) { Success(fetchCase()) }.await()
             }
             catch (cancel: CancellationException) {
                 cancel.printStackTrace()
@@ -23,7 +22,6 @@ abstract class DeferredUsecase<T, R : BaseUsecase.RequestValues> : BaseUsecase<R
                 exception.printStackTrace()
                 Error<T>(msg = exception.message.orEmpty())
             }
-        }.await()
     }
 
     abstract suspend fun fetchCase(): T

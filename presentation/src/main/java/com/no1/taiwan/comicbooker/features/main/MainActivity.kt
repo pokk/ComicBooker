@@ -1,6 +1,7 @@
 package com.no1.taiwan.comicbooker.features.main
 
 import android.os.Bundle
+import com.devrapid.kotlinknifer.loge
 import com.devrapid.kotlinknifer.logw
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.no1.taiwan.comicbooker.R
@@ -31,7 +32,9 @@ class MainActivity : AdvActivity<MainViewModel>() {
     override fun init(savedInstanceState: Bundle?) {
         navigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
         observeNonNull(vm.test) {
-            it.peelResponse(this) {
+            it.peelResponse(this, {
+                loge(it)
+            }) {
                 logw(it)
             }
         }
