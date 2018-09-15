@@ -5,6 +5,7 @@ import com.no1.taiwan.comicbooker.domain.BookerResponse.Success
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 
 abstract class DeferredUsecase<T, R : BaseUsecase.RequestValues> : BaseUsecase<R>() {
     suspend fun execute(parameter: R? = null) = run {
@@ -12,6 +13,7 @@ abstract class DeferredUsecase<T, R : BaseUsecase.RequestValues> : BaseUsecase<R
 
         // Wrapper async again for wrapping the result into [BookerResponse].
             try {
+                delay(5000)
                 async(IO, parent = parentJob) { Success(fetchCase()) }.await()
             }
             catch (cancel: CancellationException) {

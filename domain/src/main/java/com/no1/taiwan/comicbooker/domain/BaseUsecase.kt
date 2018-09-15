@@ -17,9 +17,22 @@ import kotlinx.coroutines.Job
 abstract class BaseUsecase<R : RequestValues> {
     /** Provide a common parameter variable for the children class. */
     var requestValues: R? = null
-    protected val parentJob by lazy { Job() }
+    protected var parentJob = Job()
+        get() = if (field.isCancelled) {
+            field = Job()
+            field
+        }
+        else {
+            field
+        }
+        private set
 
-    open fun abort() = parentJob.takeUnless { it.isCancelled }?.cancel() ?: true
+    open fun abort(): Boolean {
+        return parentJob.takeUnless {
+            it.isCancelled.apply {
+            }
+        }?.cancel() ?: true
+    }
 
     /** Interface for wrap a data for passing to a request.*/
     interface RequestValues
