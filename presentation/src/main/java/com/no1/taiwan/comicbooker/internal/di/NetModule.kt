@@ -29,6 +29,7 @@ object NetModule {
         bind<Cache>() with singleton { Cache(context.cacheDir, CacheMaxSize /* 10 MiB */) }
         bind<OkHttpClient>() with singleton {
             OkHttpClient.Builder()
+                .cache(instance())
                 // Show the http log.
                 .addInterceptor(HttpLoggingInterceptor().setLevel(BODY))
                 // Keep the internet result into the cache.
@@ -66,15 +67,13 @@ object NetModule {
                     // Add the modified request to the chain.
                     it.proceed(request)
                 }
-                .cache(instance())
                 .build()
         }
         bind<Builder>() with singleton {
-            Builder().apply {
-                addConverterFactory(instance())
-                addCallAdapterFactory(instance())
-                client(instance())
-            }
+            Builder()
+                .addConverterFactory(instance())
+                .addCallAdapterFactory(instance())
+                .client(instance())
         }
     }
 }

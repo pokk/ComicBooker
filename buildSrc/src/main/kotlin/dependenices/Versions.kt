@@ -131,7 +131,7 @@ object Versions {
      * Related Android UI lib version.
      */
     object Ui {
-        const val dialog = "1.0.5"
+        const val dialog = "1.0.6"
         const val loading = "1.3.0"
         const val materialChip = "1.0.8"
         const val cameraView = "1.5.1"

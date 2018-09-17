@@ -3,6 +3,7 @@ package com.no1.taiwan.comicbooker.bases
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import com.devrapid.dialogbuilder.support.QuickDialogFragment
 import com.devrapid.kotlinshaver.cast
 import com.no1.taiwan.comicbooker.widget.dialog.LoadingDialog
 import org.kodein.di.generic.instance
@@ -34,7 +35,7 @@ abstract class AdvActivity<out VM : ViewModel> : BaseActivity(), LoadView {
     /**
      * Hide a loading view.
      */
-    override fun hideLoading() = loadingView.takeIf { it.isVisible }?.dismiss() ?: Unit
+    override fun hideLoading() = loadingView.takeUnless(QuickDialogFragment::isDismiss)?.dismiss() ?: Unit
 
     /**
      * Show a retry view in case of an error when retrieving data.
