@@ -14,7 +14,7 @@ import org.kodein.di.generic.instance
 open class MultiTypeAdapter(
     override var dataList: MultiData,
     context: Context
-) : KsAdapter(), KodeinAware {
+) : BookerAdapter(), KodeinAware {
     override var typeFactory: MultiTypeFactory
         get() = multiTypeFactory
         set(_) = throw UnsupportedOperationException("We don't allow this method to use!")
@@ -22,7 +22,7 @@ open class MultiTypeAdapter(
     protected var viewType = DEFAULT_INT
     private val multiTypeFactory by instance<MultiTypeFactory>()
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KsViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookerViewHolder {
         this.viewType = viewType
 
         return super.onCreateViewHolder(parent, viewType)

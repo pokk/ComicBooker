@@ -5,9 +5,9 @@ import com.devrapid.adaptiverecyclerview.AdaptiveAdapter
 import com.devrapid.adaptiverecyclerview.AdaptiveViewHolder
 import com.devrapid.adaptiverecyclerview.IVisitable
 
-typealias KsViewHolder = AdaptiveViewHolder<MultiTypeFactory, KsMultiVisitable>
-typealias KsMultiVisitable = IVisitable<MultiTypeFactory>
-typealias KsAdapter = AdaptiveAdapter<MultiTypeFactory, KsMultiVisitable, KsViewHolder>
-typealias MultiData = MutableList<KsMultiVisitable>
+typealias BookerViewHolder = AdaptiveViewHolder<MultiTypeFactory, BookerMultiVisitable>
+typealias BookerMultiVisitable = IVisitable<MultiTypeFactory>
+typealias BookerAdapter = AdaptiveAdapter<MultiTypeFactory, BookerMultiVisitable, BookerViewHolder>
+typealias MultiData = MutableList<BookerMultiVisitable>
 
 typealias RVAdapterAny = RecyclerView.Adapter<*>

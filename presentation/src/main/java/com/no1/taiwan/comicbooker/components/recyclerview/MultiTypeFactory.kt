@@ -18,5 +18,5 @@ class MultiTypeFactory(context: Context) : ViewTypeFactory(), KodeinAware {
     private val viewHolderEntries by instance<ViewHolderEntries>()
 
     // *** Here are the entity binding the specific hashcode. ***
-    fun type(entity: KsMultiVisitable) = entity.javaClass.hashCode()
+    fun type(entity: BookerMultiVisitable) = entity.javaClass.hashCode()
 }

@@ -39,7 +39,7 @@ object ServiceModule {
      * To provide the necessary objects Remote Implementation objects into the repository.
      */
     private fun implementationRemoteProvider() = Module("Implementation Remote Module") {
-        bind<BookerConfig>() with instance(RestfulApiFactory().createKsConfig())
+        bind<BookerConfig>() with instance(RestfulApiFactory().createBookerConfig())
         bind<BookerService>() with singleton {
             with(instance<Retrofit.Builder>()) {
                 baseUrl(instance<BookerConfig>().apiBaseUrl)

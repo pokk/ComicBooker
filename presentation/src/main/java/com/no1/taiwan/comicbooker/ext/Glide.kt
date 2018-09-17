@@ -14,26 +14,30 @@ import com.bumptech.glide.request.RequestOptions
 import com.no1.taiwan.comicbooker.ext.const.DEFAULT_INT
 import com.no1.taiwan.comicbooker.ext.const.takeUnlessDefault
 
-fun ImageView.loadByString(str: String, context: Context = gContext(), options: RequestOptions = glideKsOptions()) =
+fun ImageView.loadByString(str: String, context: Context = gContext(), options: RequestOptions = glideBookerOptions()) =
     glideDefault(context, options) { load(str) }
 
-fun ImageView.loadByBitmap(bitmap: Bitmap, context: Context = gContext(), options: RequestOptions = glideKsOptions()) =
+fun ImageView.loadByBitmap(
+    bitmap: Bitmap,
+    context: Context = gContext(),
+    options: RequestOptions = glideBookerOptions()
+) =
     glideDefault(context, options) { load(bitmap) }
 
-fun ImageView.loadByUri(uri: Uri, context: Context = gContext(), options: RequestOptions = glideKsOptions()) =
+fun ImageView.loadByUri(uri: Uri, context: Context = gContext(), options: RequestOptions = glideBookerOptions()) =
     glideDefault(context, options) { load(uri) }
 
 fun ImageView.loadByDrawable(
     drawable: Drawable,
     context: Context = gContext(),
-    options: RequestOptions = glideKsOptions()
+    options: RequestOptions = glideBookerOptions()
 ) =
     glideDefault(context, options) { load(drawable) }
 
-fun ImageView.loadByAny(any: Any, context: Context = gContext(), options: RequestOptions = glideKsOptions()) =
+fun ImageView.loadByAny(any: Any, context: Context = gContext(), options: RequestOptions = glideBookerOptions()) =
     glideDefault(context, options) { load(any) }
 
-fun glideKsOptions(
+fun glideBookerOptions(
     @DrawableRes phResource: Int = DEFAULT_INT,
     @DrawableRes erSource: Int = DEFAULT_INT
 ) =
@@ -48,7 +52,7 @@ fun glideKsOptions(
 fun glideObtaineBitmapFrom(
     uri: Uri,
     context: Context = gContext(),
-    options: RequestOptions = glideKsOptions()
+    options: RequestOptions = glideBookerOptions()
 ): Bitmap = glide(context)
     .asBitmap()
     .apply(options)
@@ -59,7 +63,7 @@ fun glideObtaineBitmapFrom(
 fun glideObtaineDrawableFrom(
     uri: Uri,
     context: Context = gContext(),
-    options: RequestOptions = glideKsOptions()
+    options: RequestOptions = glideBookerOptions()
 ): Drawable = glide(context)
     .asDrawable()
     .apply(options)
@@ -69,7 +73,7 @@ fun glideObtaineDrawableFrom(
 
 private fun ImageView.glideDefault(
     context: Context = gContext(),
-    options: RequestOptions = glideKsOptions(),
+    options: RequestOptions = glideBookerOptions(),
     block: RequestBuilder<Bitmap>.() -> RequestBuilder<Bitmap>
 ) = glide(context)
     .asBitmap()

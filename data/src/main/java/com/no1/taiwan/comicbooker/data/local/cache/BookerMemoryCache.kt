@@ -13,7 +13,7 @@ open class BookerMemoryCache : AbsCache() {
         private const val CAPACITY = 200
         private const val THRESHOLD = 12L * 60 * 60 * 1000 // a day (time unit is ms)
 
-        const val CATEGORY_KS = 43
+        const val CATEGORY_BOOKER = 43
     }
 
     /**

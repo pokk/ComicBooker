@@ -10,7 +10,7 @@ import org.kodein.di.generic.instance
  * To provide the necessary objects for whole global app module.
  */
 object AppModule {
-    fun appProvider() = Kodein.Module("OneShoot") {
+    fun appProvider() = Kodein.Module("ComicBooker") {
         bind<Bus>() with instance(RxBus.get())
         // For RxJava Thread Scheduler.
 //        bind<ThreadExecutor>() with instance(JobExecutor())
