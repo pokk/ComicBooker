@@ -34,6 +34,6 @@ object UtilModule {
 //        bind<DataMapperEntry>().inSet() with provider { KsMapper::class.java to KsMapper(instance()) }
 
         /** Presentation Layer Mapper */
-//        bind<PresentationFakeMapper>() with singleton { KsEntityMapper(instance()) }
+//        bind<PresentationBookerMapper>() with singleton { BookerEntityMapper(instance()) }
     }
 }
