@@ -1,10 +1,14 @@
 package com.no1.taiwan.comicbooker.data.repositories
 
+import com.devrapid.kotlinshaver.cast
+import com.no1.taiwan.comicbooker.data.datas.DataMapper
 import com.no1.taiwan.comicbooker.data.datas.MapperPool
+import com.no1.taiwan.comicbooker.data.datas.mappers.BookerMapper
 import com.no1.taiwan.comicbooker.data.datastores.DataStore
 import com.no1.taiwan.comicbooker.data.local.cache.AbsCache
 import com.no1.taiwan.comicbooker.domain.parameters.Parameterable
 import com.no1.taiwan.comicbooker.domain.repositories.DataRepository
+import kotlinx.coroutines.async
 
 /**
  * The data repository for being responsible for selecting an appropriate data store to access
@@ -21,5 +25,16 @@ class BookerDataRepository constructor(
     private val remote: DataStore,
     private val mapperPool: MapperPool
 ) : DataRepository {
-    override fun fetchTest(parameters: Parameterable) = remote.retrieveTest(parameters)
+    private val bookerMapper by lazy { digDataMapper<BookerMapper>() }
+
+    // TODO(jieyi): 2018/09/19 Added try catch for get a mapper from di.
+    override fun fetchTest(parameters: Parameterable) = async {
+        val data = remote.retrieveTest(parameters).await()
+        bookerMapper.toModelFrom(data)
+    }
+
+    /**
+     * Get a mapper object from the mapper pool.
+     */
+    private inline fun <reified DM : DataMapper> digDataMapper() = cast<DM>(mapperPool[DM::class.java])
 }

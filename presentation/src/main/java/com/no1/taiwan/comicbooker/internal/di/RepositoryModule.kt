@@ -8,8 +8,8 @@ import com.no1.taiwan.comicbooker.data.local.cache.AbsCache
 import com.no1.taiwan.comicbooker.data.local.cache.BookerMemoryCache
 import com.no1.taiwan.comicbooker.data.repositories.BookerDataRepository
 import com.no1.taiwan.comicbooker.domain.repositories.DataRepository
-import com.no1.taiwan.comicbooker.internal.di.tags.KsTag.LOCAL
-import com.no1.taiwan.comicbooker.internal.di.tags.KsTag.REMOTE
+import com.no1.taiwan.comicbooker.internal.di.tags.BookerTag.LOCAL
+import com.no1.taiwan.comicbooker.internal.di.tags.BookerTag.REMOTE
 import org.kodein.di.Kodein.Module
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.instance

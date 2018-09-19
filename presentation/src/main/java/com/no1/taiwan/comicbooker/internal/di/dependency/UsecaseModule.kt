@@ -17,6 +17,7 @@ object UsecaseModule {
             TestUsecase(instance())
         }
         //endregion
+
         //endregion
     }
 }

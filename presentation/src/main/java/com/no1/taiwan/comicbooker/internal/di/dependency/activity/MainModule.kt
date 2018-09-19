@@ -12,7 +12,7 @@ object MainModule {
     fun mainProvider() = Module("Main Module") {
         // *** ViewModel
         bind<ViewModelEntry>().inSet() with provider {
-            MainViewModel::class.java to MainViewModel(instance())
+            MainViewModel::class.java to MainViewModel(instance(), instance())
         }
     }
 }
