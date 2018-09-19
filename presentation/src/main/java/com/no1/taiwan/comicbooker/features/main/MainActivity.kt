@@ -32,11 +32,7 @@ class MainActivity : AdvActivity<MainViewModel>() {
     override fun init(savedInstanceState: Bundle?) {
         navigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
         observeNonNull(vm.test) {
-            it.peelResponse(this, {
-                loge(it)
-            }) {
-                logw(it)
-            }
+            peelResponse(this@MainActivity, { loge(it) }) { logw(it) }
         }
     }
 

@@ -13,13 +13,13 @@ import com.no1.taiwan.comicbooker.domain.BookerResponse.Success
 /**
  * Observe the [LiveData]'s nullable value from [androidx.lifecycle.ViewModel].
  */
-inline fun <reified T> LifecycleOwner.observe(liveData: LiveData<T>, noinline block: ((T?) -> Unit)? = null) =
+inline fun <reified T> LifecycleOwner.observe(liveData: LiveData<T>, noinline block: (T?.() -> Unit)? = null) =
     block?.let { liveData.observe(this, Observer(it)) }
 
 /**
  * Observe the [LiveData]'s nonnull value from [androidx.lifecycle.ViewModel].
  */
-inline fun <reified T> LifecycleOwner.observeNonNull(liveData: LiveData<T>, noinline block: ((T) -> Unit)? = null) =
+inline fun <reified T> LifecycleOwner.observeNonNull(liveData: LiveData<T>, noinline block: (T.() -> Unit)? = null) =
     block?.run { liveData.observe(this@observeNonNull, Observer { it?.let(this) }) }
 
 /**
@@ -28,7 +28,7 @@ inline fun <reified T> LifecycleOwner.observeNonNull(liveData: LiveData<T>, noin
  */
 inline fun <reified E, T : BookerResponse<E>> LifecycleOwner.observeUnbox(
     liveData: LiveData<T>,
-    noinline block: ((E?) -> Unit)? = null
+    noinline block: (E?.() -> Unit)? = null
 ) = block?.run { liveData.observe(this@observeUnbox, Observer { it?.data.let(this) }) }
 
 /**
@@ -37,7 +37,7 @@ inline fun <reified E, T : BookerResponse<E>> LifecycleOwner.observeUnbox(
  */
 inline fun <reified E, T : BookerResponse<E>> LifecycleOwner.observeUnboxNonNull(
     liveData: LiveData<T>,
-    noinline block: ((E) -> Unit)? = null
+    noinline block: (E.() -> Unit)? = null
 ) = block?.run { liveData.observe(this@observeUnboxNonNull, Observer { it?.data?.let(block) }) }
 
 // === Peel the response ===
@@ -98,7 +98,7 @@ private fun <D> BookerResponse<D>.peelResponseOptions(
     when (it) {
         is Loading<*> -> if (isShowLoading) loadView.showLoading()
         is Success<D> -> {
-            it.data?.let { successBlock?.invoke(it) }
+            it.data?.run { successBlock?.invoke(this) }
             if (isShowLoading && isHideLoading) loadView.hideLoading()
 
             if (isShowLoading) loadView.hideLoading()
