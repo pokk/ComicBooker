@@ -11,5 +11,5 @@ class MainViewModel(
 ) : AutoViewModel() {
     val test by lazy { ResponseLiveData<String>() }
 
-    fun fetchTest() = test requestData { usecase.toRun() }
+    fun fetchTest() = test requestData { usecase.toRun(TestUsecase.Request()) }
 }

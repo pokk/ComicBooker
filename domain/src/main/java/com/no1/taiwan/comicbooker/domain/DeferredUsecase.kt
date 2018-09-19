@@ -6,8 +6,9 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.IO
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
+import kotlinx.coroutines.runBlocking
 
-abstract class DeferredUsecase<T, R : BaseUsecase.RequestValues> : BaseUsecase<R>() {
+abstract class DeferredUsecase<T : Any, R : BaseUsecase.RequestValues> : BaseUsecase<R>() {
     suspend fun execute(parameter: R? = null) = run {
         parameter?.let { requestValues = it }
 
@@ -31,4 +32,6 @@ abstract class DeferredUsecase<T, R : BaseUsecase.RequestValues> : BaseUsecase<R
     }
 
     abstract suspend fun fetchCase(): T
+
+    protected fun attachParameter(λ: suspend (R) -> T) = runBlocking { requireNotNull(requestValues?.run { λ(this) }) }
 }

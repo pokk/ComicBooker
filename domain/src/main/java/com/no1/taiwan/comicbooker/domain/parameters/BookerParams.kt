@@ -13,10 +13,10 @@ data class BookerParams(
         const val PARAM_NAME = "name"
     }
 
-    override fun toParameter() = hashMapOf(
+    override fun toApiParam() = hashMapOf(
         PARAM_ID to id.toString(),
         PARAM_NAME to desc
     )
 
-    override fun toAnyParameter() = throw UnsupportedOperationException()
+    override fun toApiAnyParam() = throw UnsupportedOperationException()
 }

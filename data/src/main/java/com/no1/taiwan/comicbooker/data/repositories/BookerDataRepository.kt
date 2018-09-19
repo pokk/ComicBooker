@@ -3,6 +3,7 @@ package com.no1.taiwan.comicbooker.data.repositories
 import com.no1.taiwan.comicbooker.data.datas.MapperPool
 import com.no1.taiwan.comicbooker.data.datastores.DataStore
 import com.no1.taiwan.comicbooker.data.local.cache.AbsCache
+import com.no1.taiwan.comicbooker.domain.parameters.Parameterable
 import com.no1.taiwan.comicbooker.domain.repositories.DataRepository
 
 /**
@@ -20,5 +21,5 @@ class BookerDataRepository constructor(
     private val remote: DataStore,
     private val mapperPool: MapperPool
 ) : DataRepository {
-    override fun fetchTest() = remote.retrieveTest()
+    override fun fetchTest(parameters: Parameterable) = remote.retrieveTest(parameters)
 }
