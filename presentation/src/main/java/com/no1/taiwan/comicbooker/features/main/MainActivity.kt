@@ -6,8 +6,10 @@ import com.devrapid.kotlinknifer.logw
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.no1.taiwan.comicbooker.R
 import com.no1.taiwan.comicbooker.bases.AdvActivity
+import com.no1.taiwan.comicbooker.ext.doWith
+import com.no1.taiwan.comicbooker.ext.happenError
 import com.no1.taiwan.comicbooker.ext.observeNonNull
-import com.no1.taiwan.comicbooker.ext.peelResponse
+import com.no1.taiwan.comicbooker.ext.peel
 import kotlinx.android.synthetic.main.activity_main.navigation
 
 class MainActivity : AdvActivity<MainViewModel>() {
@@ -32,7 +34,7 @@ class MainActivity : AdvActivity<MainViewModel>() {
     override fun init(savedInstanceState: Bundle?) {
         navigation.setOnNavigationItemSelectedListener(navigationItemSelectedListener)
         observeNonNull(vm.test) {
-            peelResponse(this@MainActivity, { loge(it) }) { logw(it) }
+            peel { logw(it) } happenError { loge(it) } doWith this@MainActivity
         }
     }
 

@@ -25,6 +25,7 @@ android {
         }
         debug {
             testCoverageEnabled true
+            buildConfigField 'String', 'URL_SERVER', '"http://' + getLocalIp('en0') + ':3000"'
         }
     }
     compileOptions {
@@ -70,4 +71,16 @@ task jacocoTestReport(type: JacocoReport, dependsOn: ['testDebugUnitTest', 'crea
     executionData = fileTree(dir: project.buildDir, includes: [
             'jacoco/testDebugUnitTest.exec', 'outputs/code-coverage/connected/*coverage.ec'
     ])
+}
+
+// Get the ip address by interface name
+// en0 is WIFI interface
+static def getLocalIp(String interfaceName) {
+    NetworkInterface iface = NetworkInterface.getByName(interfaceName)
+    for (InterfaceAddress address : iface.getInterfaceAddresses()) {
+        String ip = address.getAddress().getHostAddress()
+        if (ip.length() <= 15) {
+            return ip
+        }
+    }
 }
