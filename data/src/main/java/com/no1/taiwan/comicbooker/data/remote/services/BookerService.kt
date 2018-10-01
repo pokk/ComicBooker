@@ -1,6 +1,6 @@
 package com.no1.taiwan.comicbooker.data.remote.services
 
-import com.no1.taiwan.comicbooker.data.datas.BookerData
+import com.no1.taiwan.comicbooker.data.datas.TestData
 import com.no1.taiwan.comicbooker.domain.Parameters
 import kotlinx.coroutines.Deferred
 import retrofit2.http.GET
@@ -12,5 +12,5 @@ import retrofit2.http.QueryMap
 interface BookerService {
     //    @GET("$API_REQUEST/test/api")
     @GET("/api/v1/item/list?page=1&limit=20&partnership_company_id=1019")
-    fun retrieveTest(@QueryMap params: Parameters): Deferred<BookerData>
+    fun retrieveTest(@QueryMap params: Parameters): Deferred<TestData>
 }

@@ -44,6 +44,7 @@ dependencies {
     implementation Global.kotlin
     implementation Global.coroutine
     implementation Global.shaver
+    implementation Global.gson
 
     implementation Data.mapper
 
