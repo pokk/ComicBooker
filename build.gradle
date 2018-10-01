@@ -8,6 +8,7 @@ buildscript {
         jcenter()
         mavenCentral()
         maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
+        maven { url "https://dl.bintray.com/kotlin/kotlin-dev" }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.0'
