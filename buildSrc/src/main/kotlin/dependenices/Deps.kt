@@ -46,7 +46,7 @@ object Deps {
      * The necessary debug libs for all modules.
      */
     object GlobalDebug {
-        const val database = "com.amitshekhar.android:debug-db:${Versions.Database.debug}"
+        const val database = "com.facebook.stetho:stetho:${Versions.Database.debug}"
     }
     //endregion
 

@@ -2,12 +2,15 @@ package com.no1.taiwan.comicbooker
 
 import android.content.Context
 import androidx.multidex.MultiDexApplication
+import com.devrapid.kotlinknifer.SharedPrefs
+import com.facebook.stetho.Stetho
 import com.no1.taiwan.comicbooker.internal.di.AppModule.appProvider
 import com.no1.taiwan.comicbooker.internal.di.RecyclerViewModule.recyclerViewProvider
 import com.no1.taiwan.comicbooker.internal.di.RepositoryModule.repositoryProvider
 import com.no1.taiwan.comicbooker.internal.di.ServiceModule.serviceProvider
 import com.no1.taiwan.comicbooker.internal.di.UtilModule.utilProvider
 import com.no1.taiwan.comicbooker.internal.di.dependency.UsecaseModule.usecaseProvider
+import org.jetbrains.anko.defaultSharedPreferences
 import org.kodein.di.Kodein.Companion.lazy
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.androidModule
@@ -42,4 +45,12 @@ class App : MultiDexApplication(), KodeinAware {
         import(recyclerViewProvider(app))
     }
 
+    override fun onCreate() {
+        super.onCreate()
+        SharedPrefs.setPrefSettings(defaultSharedPreferences)
+        Stetho.initialize(Stetho.newInitializerBuilder(this)
+                              .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
+                              .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
+                              .build())
+    }
 }
