@@ -2,7 +2,6 @@ import dependenices.Deps.Global
 import dependenices.Deps.GlobalDebug
 import dependenices.Deps.Presentation
 import dependenices.Versions.Android
-import resources.FeatureRes
 
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
@@ -35,7 +34,7 @@ android {
     }
     sourceSets {
         main {
-            res.srcDirs += FeatureRes.dirs
+            res.srcDirs += resources.FeatureRes.dirs
         }
     }
     dexOptions { javaMaxHeapSize "4g" }
@@ -147,6 +146,8 @@ dependencies {
     implementation Presentation.navigationUi
     implementation Presentation.navigationFragment
     //endregion
+
+    implementation 'com.tencent:mmkv:1.0.10'
 
     debugImplementation GlobalDebug.database
 }

@@ -10,6 +10,7 @@ import com.no1.taiwan.comicbooker.internal.di.RepositoryModule.repositoryProvide
 import com.no1.taiwan.comicbooker.internal.di.ServiceModule.serviceProvider
 import com.no1.taiwan.comicbooker.internal.di.UtilModule.utilProvider
 import com.no1.taiwan.comicbooker.internal.di.dependency.UsecaseModule.usecaseProvider
+import com.tencent.mmkv.MMKV
 import org.jetbrains.anko.defaultSharedPreferences
 import org.kodein.di.Kodein.Companion.lazy
 import org.kodein.di.KodeinAware
@@ -47,7 +48,10 @@ class App : MultiDexApplication(), KodeinAware {
 
     override fun onCreate() {
         super.onCreate()
+        // key-value storage, choose one for using.
         SharedPrefs.setPrefSettings(defaultSharedPreferences)
+        MMKV.initialize(this)
+
         Stetho.initialize(Stetho.newInitializerBuilder(this)
                               .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
                               .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
