@@ -31,8 +31,8 @@ object Versions {
      * Related Kotlin lib version.
      */
     object Kotlin {
-        const val kotlinLib = "1.3.0-rc-116"
-        const val kotlinCoroutine = "0.30.0-eap13"
+        const val kotlinLib = "1.3.0-rc-146"
+        const val kotlinCoroutine = "0.30.1-eap13"
     }
 
     /**
@@ -49,7 +49,7 @@ object Versions {
         const val dex = "2.0.0"
         const val aac = androidx
         const val aacLifecycle = "2.0.0"
-        const val anko = "0.10.5"
+        const val anko = "0.10.7-rc13"
         const val ktx = androidx
         const val kinfer = "2.0.3"
         const val shaver = "1.0.3"
@@ -59,7 +59,7 @@ object Versions {
      * Related dependency injection lib version.
      */
     object DI {
-        const val kodein = "5.2.0"
+        const val kodein = "5.3.0"
     }
 
     /**
@@ -87,7 +87,6 @@ object Versions {
      * Related database lib version.
      */
     object Database {
-        const val dbflow = "4.2.4"
         const val debug = "1.5.0"
     }
 

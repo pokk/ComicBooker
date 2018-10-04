@@ -19,7 +19,6 @@ object Deps {
 
         const val shaver = "com.devrapid.jieyi:kotlinshaver:${Versions.KotlinAndroidExt.shaver}"
 
-        const val kodeinAndroid = "org.kodein.di:kodein-di-framework-android:${Versions.DI.kodein}"
         const val kodeinAndroidX = "org.kodein.di:kodein-di-framework-android-x:${Versions.DI.kodein}"
         const val kodeinJVM = "org.kodein.di:kodein-di-generic-jvm:${Versions.DI.kodein}"
 
@@ -86,9 +85,6 @@ object Deps {
         const val firebaseMLImageLabel =
             "com.google.firebase:firebase-ml-vision-image-label-model:${Versions.Firebase.mlImageLabel}"
 
-        const val dbflow = Data.dbflow
-        const val dbflowRxJava2KotlinExt = Data.dbflowRxJava2
-
         const val cloudinary = "com.cloudinary:cloudinary-android:${Versions.CloudStore.cloudinary}"
 
         const val modelMapper = Data.mapper
@@ -152,16 +148,6 @@ object Deps {
         // Mapper
         const val mapper = "org.modelmapper:modelmapper:${Versions.Mapping.modelmapper}"
         // Database
-        const val dbflowProcessor = "com.github.Raizlabs.DBFlow:dbflow-processor:${Versions.Database.dbflow}"
-        const val dbflowCore = "com.github.Raizlabs.DBFlow:dbflow-core:${Versions.Database.dbflow}"
-        const val dbflow = "com.github.Raizlabs.DBFlow:dbflow:${Versions.Database.dbflow}"
-        const val dbflowKotlinExt = "com.github.Raizlabs.DBFlow:dbflow-kotlinextensions:${Versions.Database.dbflow}"
-        const val dbflowRxJava2 = "com.github.Raizlabs.DBFlow:dbflow-rx2:${Versions.Database.dbflow}"
-        const val dbflowRxJava2KotlinExt =
-            "com.github.Raizlabs.DBFlow:dbflow-rx2-kotlinextensions:${Versions.Database.dbflow}"
-        // sql-cipher database encryption (optional)
-        const val dbflowSqlEncrypt = "com.github.Raizlabs.DBFlow:dbflow-sqlcipher:${Versions.Database.dbflow}"
-        const val dbflowSqlCipher = "net.zetetic:android-database-sqlcipher:${Versions.Database.dbflow}@aar"
 
         const val firebaseDB = Presentation.firebaseDB
         const val firebaseVision = Presentation.firebaseVision
