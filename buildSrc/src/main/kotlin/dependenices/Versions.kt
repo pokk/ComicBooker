@@ -106,7 +106,6 @@ object Versions {
     object RxDep {
         const val rxJava2 = "2.2.1"
         const val rxKotlin2 = "2.3.0"
-        const val rxLifecycle2 = "2.2.2"
         const val rxPermission2 = "0.9.5@aar"
         const val rxBus = "2.0.0"
     }
