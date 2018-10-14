@@ -55,6 +55,11 @@ object Versions {
         const val shaver = "1.0.3"
     }
 
+    object AndroidArchitectureComponent {
+        const val aac = androidx
+        const val room = "1.1.1"
+    }
+
     /**
      * Related dependency injection lib version.
      */

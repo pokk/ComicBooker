@@ -148,7 +148,9 @@ object Deps {
         // Mapper
         const val mapper = "org.modelmapper:modelmapper:${Versions.Mapping.modelmapper}"
         // Database
-
+        const val room = "android.arch.persistence.room:runtime:${Versions.AndroidArchitectureComponent.room}"
+        const val roomAnnotation =
+            "android.arch.persistence.room:compiler:${Versions.AndroidArchitectureComponent.room}"
         const val firebaseDB = Presentation.firebaseDB
         const val firebaseVision = Presentation.firebaseVision
         const val firebaseMLImageLabel = Presentation.firebaseMLImageLabel
@@ -163,6 +165,7 @@ object Deps {
      */
     object DataTest {
         const val robolectric = PresentationTest.robolectric
+        const val room = "android.arch.persistence.room:testing:${Versions.AndroidArchitectureComponent.room}"
     }
     //endregion
 
