@@ -12,7 +12,7 @@ object Versions {
     object Android {
         const val minSdk = 21
         const val targetSdk = 28
-        const val buiildTool = "28.0.2"
+        const val buiildTool = "28.0.3"
         const val compileSdk = targetSdk
     }
 
@@ -32,7 +32,7 @@ object Versions {
      */
     object Kotlin {
         const val kotlinLib = "1.3.0-rc-146"
-        const val kotlinCoroutine = "0.30.1-eap13"
+        const val kotlinCoroutine = "0.30.2-eap13"
     }
 
     /**

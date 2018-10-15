@@ -48,6 +48,9 @@ dependencies {
 
     implementation Data.mapper
 
+    annotationProcessor Data.roomAnnotation
+    implementation Data.room
+
     //region Internet & Image loading
     implementation Data.retrofit2
     implementation(Data.retrofit2AdapterCoroutine) {
