@@ -1,4 +1,4 @@
-package com.no1.taiwan.comicbooker.data.local.database.room.daos
+package com.no1.taiwan.comicbooker.data.local.v1
 
 import androidx.room.Dao
 import androidx.room.Query

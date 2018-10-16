@@ -13,4 +13,6 @@ class RemoteDataStore(
     private val bookerFirebase: BookerFirebase
 ) : DataStore {
     override fun retrieveTest(parameters: Parameterable) = bookerService.retrieveTest(parameters.toApiParam())
+
+    override fun retrieveBookerData(parameters: Parameterable) = throw UnsupportedOperationException()
 }

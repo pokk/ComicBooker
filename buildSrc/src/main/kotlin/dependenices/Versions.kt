@@ -57,7 +57,7 @@ object Versions {
 
     object AndroidArchitectureComponent {
         const val aac = androidx
-        const val room = "1.1.1"
+        const val room = "2.1.0-alpha01"
     }
 
     /**
@@ -93,6 +93,7 @@ object Versions {
      */
     object Database {
         const val debug = "1.5.0"
+        const val mmkv = "1.0.10"
     }
 
     /**
@@ -121,13 +122,6 @@ object Versions {
     object Parser {
         const val gson = "2.8.5"
         const val jsoup = "1.10.3"
-    }
-
-    /**
-     * Related mapping lib version.
-     */
-    object Mapping {
-        const val modelmapper = "2.2.0"
     }
 
     /**

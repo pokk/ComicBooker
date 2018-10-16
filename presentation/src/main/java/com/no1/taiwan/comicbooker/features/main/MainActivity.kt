@@ -36,12 +36,17 @@ class MainActivity : AdvActivity<MainViewModel>() {
         observeNonNull(vm.test) {
             peel { logw(it) } happenError { loge(it) } doWith this@MainActivity
         }
+
+        observeNonNull(vm.bookers) {
+            peel { logw(it) } happenError { loge(it) } doWith this@MainActivity
+        }
     }
 
     override fun onResume() {
         super.onResume()
 
-        vm.fetchTest()
+//        vm.fetchTest()
+        vm.fetchBooker()
     }
 
     override fun provideLayoutId() = R.layout.activity_main

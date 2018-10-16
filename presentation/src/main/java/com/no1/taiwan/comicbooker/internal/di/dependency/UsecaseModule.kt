@@ -1,5 +1,6 @@
 package com.no1.taiwan.comicbooker.internal.di.dependency
 
+import com.no1.taiwan.comicbooker.domain.usecases.GetBookersUsecase
 import com.no1.taiwan.comicbooker.domain.usecases.TestUsecase
 import org.kodein.di.Kodein.Module
 import org.kodein.di.generic.bind
@@ -15,6 +16,9 @@ object UsecaseModule {
         //region Fake
         bind<TestUsecase>() with singleton {
             TestUsecase(instance())
+        }
+        bind<GetBookersUsecase>() with singleton {
+            GetBookersUsecase(instance())
         }
         //endregion
 

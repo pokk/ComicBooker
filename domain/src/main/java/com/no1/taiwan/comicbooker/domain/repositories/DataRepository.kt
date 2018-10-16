@@ -1,5 +1,6 @@
 package com.no1.taiwan.comicbooker.domain.repositories
 
+import com.no1.taiwan.comicbooker.domain.models.BookerModel
 import com.no1.taiwan.comicbooker.domain.models.TestModel
 import com.no1.taiwan.comicbooker.domain.parameters.Parameterable
 import kotlinx.coroutines.Deferred
@@ -9,4 +10,6 @@ import kotlinx.coroutines.Deferred
  */
 interface DataRepository {
     fun fetchTest(parameters: Parameterable): Deferred<TestModel>
+
+    fun fetchBooker(parameters: Parameterable): Deferred<List<BookerModel>>
 }

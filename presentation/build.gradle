@@ -88,10 +88,6 @@ dependencies {
     implementation Global.kodeinJVM
     //endregion
 
-    //region Mapper
-    implementation Presentation.modelMapper
-    //endregion
-
     //region Rx Bus
     implementation(Presentation.rxBus) {
         exclude group: 'com.jakewharton.timber', module: 'timber'
@@ -127,6 +123,8 @@ dependencies {
         exclude group: 'com.android.support'
     }
 //    implementation Presentation.cloudinary
+    implementation Presentation.room
+    implementation Presentation.mmkv
     //endregion
 
     //region Android extension
@@ -147,7 +145,5 @@ dependencies {
     implementation Presentation.navigationFragment
     //endregion
 
-    implementation 'com.tencent:mmkv:1.0.10'
-
-    debugImplementation GlobalDebug.database
+    debugImplementation GlobalDebug.steho
 }

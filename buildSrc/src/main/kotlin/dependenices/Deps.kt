@@ -45,7 +45,7 @@ object Deps {
      * The necessary debug libs for all modules.
      */
     object GlobalDebug {
-        const val database = "com.facebook.stetho:stetho:${Versions.Database.debug}"
+        const val steho = "com.facebook.stetho:stetho:${Versions.Database.debug}"
     }
     //endregion
 
@@ -77,6 +77,8 @@ object Deps {
 
         const val glide = "com.github.bumptech.glide:glide:${Versions.Network.glide}"
 
+        const val mmkv = "com.tencent:mmkv:${Versions.Database.mmkv}"
+
         const val firebaseCore = "com.google.firebase:firebase-core:${Versions.Firebase.core}"
         const val firebaseDB = "com.google.firebase:firebase-database:${Versions.Firebase.database}"
         const val firebaseAuth = "com.google.firebase:firebase-auth:${Versions.Firebase.auth}"
@@ -87,7 +89,7 @@ object Deps {
 
         const val cloudinary = "com.cloudinary:cloudinary-android:${Versions.CloudStore.cloudinary}"
 
-        const val modelMapper = Data.mapper
+        const val room = Data.room
 
         const val arv = "com.devrapid.jieyi:adaptiverecyclerview:${Versions.ViewComponent.adaptiveRecyclerView}"
 
@@ -145,8 +147,6 @@ object Deps {
         const val retrofit2ConverterGson = "com.squareup.retrofit2:converter-gson:${Versions.Network.retrofit2}"
         const val retrofit2AdapterCoroutine =
             "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:${Versions.Network.adapterCoroutine}"
-        // Mapper
-        const val mapper = "org.modelmapper:modelmapper:${Versions.Mapping.modelmapper}"
         // Database
         const val room = "android.arch.persistence.room:runtime:${Versions.AndroidArchitectureComponent.room}"
         const val roomAnnotation =

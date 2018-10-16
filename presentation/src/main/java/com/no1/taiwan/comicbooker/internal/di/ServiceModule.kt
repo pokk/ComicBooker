@@ -3,7 +3,7 @@ package com.no1.taiwan.comicbooker.internal.di
 import android.content.Context
 import com.google.firebase.database.FirebaseDatabase
 import com.no1.taiwan.comicbooker.data.local.services.BookerDatabase
-import com.no1.taiwan.comicbooker.data.local.v1.BookerRoom
+import com.no1.taiwan.comicbooker.data.local.v1.BookerDao
 import com.no1.taiwan.comicbooker.data.remote.RestfulApiFactory
 import com.no1.taiwan.comicbooker.data.remote.config.BookerConfig
 import com.no1.taiwan.comicbooker.data.remote.services.BookerFirebase
@@ -31,7 +31,7 @@ object ServiceModule {
         // *** For the [Local] data module.
 //        import(tensorFlowProvider(context))
 
-        import(implementationLocalProvider())
+        import(implementationLocalProvider(context))
     }
 
     //region Remote Providers
@@ -60,7 +60,7 @@ object ServiceModule {
     /**
      * To provide the necessary objects Local Implementation objects into the repository.
      */
-    private fun implementationLocalProvider() = Module("Implementation Local Module") {
-        bind<BookerDatabase>() with instance(BookerRoom())
+    private fun implementationLocalProvider(context: Context) = Module("Implementation Local Module") {
+        bind<BookerDao>() with instance(BookerDatabase.getDatabase(context).contactsDao())
     }
 }

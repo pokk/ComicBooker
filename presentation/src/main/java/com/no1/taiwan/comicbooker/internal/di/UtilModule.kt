@@ -13,11 +13,9 @@ import com.no1.taiwan.comicbooker.entities.mappers.TestEntityMapper
 import org.kodein.di.Kodein.Module
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.inSet
-import org.kodein.di.generic.instance
 import org.kodein.di.generic.provider
 import org.kodein.di.generic.setBinding
 import org.kodein.di.generic.singleton
-import org.modelmapper.ModelMapper
 
 /**
  * To provide the necessary utility objects for the whole app.
@@ -29,7 +27,7 @@ object UtilModule {
         /** Mapper Set for [com.no1.taiwan.comicbooker.data.datas.mappers.Mapper] */
         bind() from setBinding<DataMapperEntry>()
 
-        bind<ModelMapper>() with instance(ModelMapper())
+        // OPTIMIZE(jieyi): 2018/10/16 We might use Gson for mapping data.
         bind<Gson>() with singleton {
             with(GsonBuilder()) {
                 setFieldNamingPolicy(LOWER_CASE_WITH_UNDERSCORES)
@@ -39,12 +37,12 @@ object UtilModule {
         }
 
         /** Data Layer Mapper */
-        bind<DataMapperEntry>().inSet() with provider { BookerMapper::class.java to BookerMapper(instance()) }
-        bind<DataMapperEntry>().inSet() with provider { TestMapper::class.java to TestMapper(instance()) }
+        bind<DataMapperEntry>().inSet() with provider { BookerMapper::class.java to BookerMapper() }
+        bind<DataMapperEntry>().inSet() with provider { TestMapper::class.java to TestMapper() }
 
         // TODO(jieyi): 2018/09/19 Doing as like the domain can find the mapper.
         /** Presentation Layer Mapper */
-        bind<PresentationBookerMapper>() with singleton { BookerEntityMapper(instance()) }
-        bind<PresentationTestMapper>() with singleton { TestEntityMapper(instance()) }
+        bind<PresentationBookerMapper>() with singleton { BookerEntityMapper() }
+        bind<PresentationTestMapper>() with singleton { TestEntityMapper() }
     }
 }

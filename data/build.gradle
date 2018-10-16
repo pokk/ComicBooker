@@ -46,9 +46,7 @@ dependencies {
     implementation Global.shaver
     implementation Global.gson
 
-    implementation Data.mapper
-
-    annotationProcessor Data.roomAnnotation
+    kapt Data.roomAnnotation
     implementation Data.room
 
     //region Internet & Image loading
