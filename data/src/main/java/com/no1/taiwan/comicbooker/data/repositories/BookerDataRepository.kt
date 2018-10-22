@@ -42,11 +42,7 @@ class BookerDataRepository constructor(
     override fun fetchBooker(parameters: Parameterable) =
         GlobalScope.async(Dispatchers.Default, CoroutineStart.DEFAULT, null, {
             val data = local.retrieveBookerData(parameters).await()
-            data.map(bookerMapper::toModelFrom).apply {
-                println("=================================================")
-                println(this)
-                println("=================================================")
-            }
+            data.map(bookerMapper::toModelFrom)
         })
 
     /**

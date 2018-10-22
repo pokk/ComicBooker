@@ -2,16 +2,14 @@ package com.no1.taiwan.comicbooker
 
 import android.content.Context
 import androidx.multidex.MultiDexApplication
-import com.devrapid.kotlinknifer.SharedPrefs
-import com.facebook.stetho.Stetho
+import com.no1.taiwan.comicbooker.components.service.InitialService
 import com.no1.taiwan.comicbooker.internal.di.AppModule.appProvider
 import com.no1.taiwan.comicbooker.internal.di.RecyclerViewModule.recyclerViewProvider
 import com.no1.taiwan.comicbooker.internal.di.RepositoryModule.repositoryProvider
 import com.no1.taiwan.comicbooker.internal.di.ServiceModule.serviceProvider
 import com.no1.taiwan.comicbooker.internal.di.UtilModule.utilProvider
 import com.no1.taiwan.comicbooker.internal.di.dependency.UsecaseModule.usecaseProvider
-import com.tencent.mmkv.MMKV
-import org.jetbrains.anko.defaultSharedPreferences
+import org.jetbrains.anko.startService
 import org.kodein.di.Kodein.Companion.lazy
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.androidModule
@@ -48,13 +46,8 @@ class App : MultiDexApplication(), KodeinAware {
 
     override fun onCreate() {
         super.onCreate()
-        // key-value storage, choose one for using.
-        SharedPrefs.setPrefSettings(defaultSharedPreferences)
-        MMKV.initialize(this)
 
-        Stetho.initialize(Stetho.newInitializerBuilder(this)
-                              .enableDumpapp(Stetho.defaultDumperPluginsProvider(this))
-                              .enableWebKitInspector(Stetho.defaultInspectorModulesProvider(this))
-                              .build())
+        // Start init process service.
+        startService<InitialService>()
     }
 }

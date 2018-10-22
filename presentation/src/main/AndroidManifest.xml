@@ -30,6 +30,10 @@
             </intent-filter>
         </activity>
 
+        <service
+            android:name=".components.service.InitialService"
+            android:exported="false"/>
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts"/>
