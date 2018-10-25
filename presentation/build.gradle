@@ -1,6 +1,8 @@
 import dependenices.Deps.Global
 import dependenices.Deps.GlobalDebug
+import dependenices.Deps.GlobalTest
 import dependenices.Deps.Presentation
+import dependenices.Deps.PresentationTest
 import dependenices.Versions.Android
 
 apply plugin: 'com.android.application'
@@ -146,4 +148,10 @@ dependencies {
     //endregion
 
     debugImplementation GlobalDebug.steho
+
+    androidTestImplementation GlobalTest.junit
+    androidTestImplementation GlobalTest.junitCore
+    androidTestImplementation PresentationTest.runner
+    androidTestImplementation PresentationTest.espressoCore
+    androidTestImplementation PresentationTest.kakao
 }

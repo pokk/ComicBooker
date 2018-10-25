@@ -30,7 +30,8 @@ object Deps {
      * The necessary unit test libs for all modules.
      */
     object GlobalTest {
-        const val junit = "junit:junit:${Versions.Test.jUnit}"
+        const val junitCore = "androidx.test:core:${Versions.Test.jUnit}"
+        const val junit = "androidx.test.ext:junit:${Versions.Test.jUnit}"
         const val kotlin = "org.jetbrains.kotlin:kotlin-test-junit:${Versions.Kotlin.kotlinLib}"
         const val mockito = "com.nhaarman:mockito-kotlin:${Versions.Test.mockitoKotlin}"
         const val assertj = "org.assertj:assertj-core:${Versions.Test.assertJ}"
@@ -117,11 +118,11 @@ object Deps {
      * The necessary unit test libs only for the presentation layer.
      */
     object PresentationTest {
-        const val espressoHelper = "com.github.Zhuinden:espresso-helper:${Versions.Test.espressoHelper}"
-        const val robolectric = "org.robolectric:robolectric:${Versions.Test.robolectric}"
         const val mockito = "org.mockito:mockito-android:${Versions.Test.mockitoAndroid}"
         const val mockkAndroid = "io.mockk:mockk-android:${Versions.Test.mockk}"
         const val kakao = "com.agoda.kakao:kakao:${Versions.Test.kakao}"
+        const val runner = "androidx.test:runner:${Versions.Test.runner}"
+        const val espressoCore = "androidx.test.espresso:espresso-core:${Versions.Test.espresso}"
     }
     //endregion
 
@@ -164,7 +165,6 @@ object Deps {
      * The necessary unit test libs only for the data layer.
      */
     object DataTest {
-        const val robolectric = PresentationTest.robolectric
         const val room = "android.arch.persistence.room:testing:${Versions.AndroidArchitectureComponent.room}"
     }
     //endregion
