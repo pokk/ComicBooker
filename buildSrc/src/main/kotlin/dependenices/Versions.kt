@@ -32,7 +32,7 @@ object Versions {
      */
     object Kotlin {
         const val kotlinLib = "1.3.0-rc-190"
-        const val kotlinCoroutine = "0.30.2-eap13"
+        const val kotlinCoroutine = "1.0.0-RC1"
     }
 
     /**
@@ -137,14 +137,14 @@ object Versions {
      */
     object Test {
         const val jUnit = "1.0.0"
-        const val kakao = "1.4.0"
+        const val assertK = "0.12"
         const val runner = "1.1.0"
         const val espresso = "3.1.0"
-        const val assertJ = "3.11.0"
+        const val kakao = "1.4.0"
         const val powerMockito = "1.7.4"
-        const val mockitoKotlin = "1.5.0"
-        const val mockitoAndroid = "2.9.0"
-        const val mockk = "1.8.3"
+        const val mockitoKotlin = "2.0.0-RC3"
+        const val mockitoAndroid = "2.23.0"
+        const val mockk = "v1.8.9.kotlin13"
         const val byteBuddy = "1.8.12"
     }
 }
