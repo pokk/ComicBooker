@@ -15,11 +15,25 @@ buildscript {
         maven { url "https://dl.bintray.com/kotlin/kotlin-dev" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.2.0'
+        classpath 'com.android.tools.build:gradle:3.2.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Kotlin.kotlinLib}"
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
+    }
+}
+
+plugins {
+    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC9.2"
+}
+
+subprojects {
+    detekt {
+        debug = true
+        parallel = true
+        toolVersion = "1.0.0.RC9.2"
+        config = files("$rootDir/detekt.yml")
+        filters = ".*/resources/.*,.*/build/.*"
     }
 }
 
