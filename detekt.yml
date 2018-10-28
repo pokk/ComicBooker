@@ -20,7 +20,7 @@ test-pattern: # Configure exclusions for test sources
     - 'TooManyFunctions'
 
 build:
-  maxIssues: 10
+  maxIssues: 10  # break the build if ten weighted issues are found
   weights:
     # complexity: 2
     # LongParameterList: 1
@@ -186,6 +186,7 @@ exceptions:
      - IndexOutOfBoundsException
      - RuntimeException
      - Throwable
+    allowedExceptionNameRegex: "^(_|(ignore|expected).*)"
   TooGenericExceptionThrown:
     active: true
     exceptionNames:
@@ -289,6 +290,11 @@ naming:
   ClassNaming:
     active: true
     classPattern: '[A-Z$][a-zA-Z0-9$]*'
+  ConstructorParameterNaming:
+    active: true
+    parameterPattern: '[a-z][A-Za-z0-9]*'
+    privateParameterPattern: '[a-z][A-Za-z0-9]*'
+    excludeClassPattern: '$^'
   EnumNaming:
     active: true
     enumEntryPattern: '^[A-Z][_a-zA-Z0-9]*'
@@ -305,6 +311,11 @@ naming:
     active: true
     functionPattern: '^([a-z$][a-zA-Z$0-9]*)|(`.*`)$'
     excludeClassPattern: '$^'
+    ignoreOverridden: true
+  FunctionParameterNaming:
+    active: true
+    parameterPattern: '[a-z][A-Za-z0-9]*'
+    excludeClassPattern: '$^'
   MatchingDeclarationName:
     active: true
   MemberNameEqualsClassName:
@@ -314,6 +325,7 @@ naming:
     active: true
     propertyPattern: '[A-Za-z][_A-Za-z0-9]*'
     constantPattern: '[A-Za-z][_A-Za-z0-9]*'
+    privatePropertyPattern: '(_)?[A-Za-z][A-Za-z0-9]*'
   PackageNaming:
     active: true
     packagePattern: '^[a-z]+(\.[a-z][a-z0-9]*)*$'
@@ -333,6 +345,7 @@ naming:
     variablePattern: '[a-z][A-Za-z0-9]*'
     privateVariablePattern: '(_)?[a-z][A-Za-z0-9]*'
     excludeClassPattern: '$^'
+    ignoreOverridden: true
 
 performance:
   active: true
@@ -368,7 +381,7 @@ potential-bugs:
   UnreachableCode:
     active: true
   UnsafeCallOnNullableType:  # Check the `!!` force to call.
-    active: false
+    active: true
   UnsafeCast:
     active: true
   UselessPostfixExpression:
@@ -387,12 +400,15 @@ style:
     active: false
   ExpressionBodySyntax:
     active: false
+    includeLineWrapping: false
   ForbiddenComment:
     active: true
     values: 'TODO:,FIXME:,STOPSHIP:'
   ForbiddenImport:
     active: false
     imports: ''
+  ForbiddenVoid:
+    active: false
   FunctionOnlyReturningConstant:
     active: false
     ignoreOverridableFunction: true
@@ -410,6 +426,8 @@ style:
     ignoreAnnotation: false
     ignoreNamedArgument: true
     ignoreEnums: false
+  MandatoryBracesIfStatements:
+    active: false
   MaxLineLength:
     active: true
     maxLineLength: 120
@@ -432,12 +450,16 @@ style:
     active: true
   OptionalWhenBraces:
     active: true
+  PreferToOverPairSyntax:
+    active: true
   ProtectedMemberInFinalClass:
     active: true
   RedundantVisibilityModifierRule:
     active: true
   ReturnCount:
     active: false
+  ReturnCount:
+    active: true
     max: 2
     excludedFunctions: "equals"
   SafeCast:
@@ -453,8 +475,11 @@ style:
     active: true
   UnnecessaryAbstractClass:
     active: true
+    excludeAnnotatedClasses: "dagger.Module"
   UnnecessaryInheritance:
     active: true
+  UnnecessaryLet:
+    active: false
   UnnecessaryParentheses:
     active: true
   UntilInsteadOfRangeTo:
@@ -462,13 +487,15 @@ style:
   UnusedImports:
     active: true
   UnusedPrivateMember:
-    active: false
-    allowedNames: "(_|ignored|expected)"
+    active: true
+    allowedNames: "(_|ignored|expected|serialVersionUID)"
   UseDataClass:
     active: true
     excludeAnnotatedClasses: ""
   UtilityClassWithPublicConstructor:
     active: true
+  VarCouldBeVal:
+    active: false
   WildcardImport:
     active: true
     excludeImports: 'java.util.*,kotlinx.android.synthetic.*'

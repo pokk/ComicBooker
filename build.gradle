@@ -11,6 +11,7 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
+
         maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
         maven { url "https://dl.bintray.com/kotlin/kotlin-dev" }
     }
@@ -19,7 +20,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Kotlin.kotlinLib}"
 
         // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+        //  in the individual module build.gradle files
     }
 }
 
@@ -28,12 +29,24 @@ plugins {
 }
 
 subprojects {
+    apply {
+        plugin("io.gitlab.arturbosch.detekt")
+    }
+
     detekt {
+        toolVersion = "1.0.0.RC9.2"
         debug = true
         parallel = true
-        toolVersion = "1.0.0.RC9.2"
-        config = files("$rootDir/detekt.yml")
+        input = files("src/main/java")
         filters = ".*/resources/.*,.*/build/.*"
+        config = files("$rootDir/detekt.yml")
+
+        idea {
+            path = "$rootDir/.idea"
+            codeStyleScheme = "$rootDir/.idea/idea-code-style.xml"
+            inspectionsProfile = "$rootDir/.idea/inspect.xml"
+            mask = "*.kt"
+        }
     }
 }
 
@@ -42,11 +55,12 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
+
         // required to find the project's artifacts
-        maven { url 'http://dl.bintray.com/kotlin/kotlin-eap' }
+        maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
         maven { url "https://www.jitpack.io" }
         maven { url "https://dl.bintray.com/pokk/maven" }
-        maven { url 'https://dl.bintray.com/kodein-framework/Kodein-DI/' }
+        maven { url "https://dl.bintray.com/kodein-framework/Kodein-DI/" }
     }
 }
 
