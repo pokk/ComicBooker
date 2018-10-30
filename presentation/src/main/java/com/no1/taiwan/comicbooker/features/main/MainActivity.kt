@@ -15,8 +15,6 @@ import kotlinx.android.synthetic.main.activity_main.et_input1
 import kotlinx.android.synthetic.main.activity_main.et_input2
 import kotlinx.android.synthetic.main.activity_main.navigation
 import kotlinx.android.synthetic.main.activity_main.tv_res
-import kotlinx.coroutines.Dispatchers
-import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class MainActivity : AdvActivity<MainViewModel>() {
     private val navigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
@@ -47,7 +45,7 @@ class MainActivity : AdvActivity<MainViewModel>() {
 //            peel { logw(it) } happenError { loge(it) } doWith this@MainActivity
 //        }
 
-        btn_click.onClick(Dispatchers.Main) {
+        btn_click.setOnClickListener {
             val s = "${et_input1.text} + ${et_input2.text}"
 
             tv_res.text = s
