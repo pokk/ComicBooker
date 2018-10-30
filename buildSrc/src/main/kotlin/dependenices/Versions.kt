@@ -24,7 +24,7 @@ object Versions {
         const val cardview = androidx
         const val constraintLayout = "2.0.0-alpha2"
         const val coordinatorLayout = androidx
-        const val navigation = "1.0.0-alpha06"
+        const val navigation = "1.0.0-alpha07"
     }
 
     /**
@@ -39,7 +39,7 @@ object Versions {
      * Related view component lib version.
      */
     object ViewComponent {
-        const val adaptiveRecyclerView = "1.0.2"
+        const val adaptiveRecyclerView = "1.0.3"
     }
 
     /**
@@ -69,13 +69,13 @@ object Versions {
      * Related Firebase lib version.
      */
     object Firebase {
-        const val core = "16.0.3"
-        const val database = "16.0.1"
+        const val core = "16.0.4"
+        const val database = "16.0.4"
         const val auth = "16.0.3"
         const val messaging = "17.3.0"
 
-        const val mlVision = "16.0.0"
-        const val mlImageLabel = "15.0.0"
+        const val mlVision = "18.0.1"
+        const val mlImageLabel = "17.0.2"
     }
 
     object TensorFlow {
@@ -91,7 +91,7 @@ object Versions {
      */
     object Database {
         const val debug = "1.5.0"
-        const val mmkv = "1.0.10"
+        const val mmkv = "1.0.12"
     }
 
     /**
@@ -101,7 +101,7 @@ object Versions {
         const val glide = "4.8.0"
         const val retrofit2 = "2.4.0"
         const val adapterCoroutine = "0.9.0"
-        const val okhttp3 = "3.10.0"
+        const val okhttp3 = "3.11.0"
     }
 
     /**
@@ -142,11 +142,18 @@ object Versions {
         const val espresso = "3.1.0"
         const val kakao = "1.4.0"
         const val powerMockito = "1.7.4"
-        const val mockitoKotlin = "2.0.0-RC3"
+        const val mockitoKotlin = "2.0.0"
         const val mockitoAndroid = "2.23.0"
         const val mockk = "v1.8.9.kotlin13"
-        const val byteBuddy = "1.8.12"
+        const val byteBuddy = "1.9.3"
 
+    }
+
+    /**
+     * Related extension Plugins lib version.
+     */
+    object Plugin {
         const val detekt = "1.0.0.RC9.2"
+        const val versionUpdater = "0.20.0"
     }
 }

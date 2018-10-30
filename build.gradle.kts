@@ -1,3 +1,5 @@
+import io.gitlab.arturbosch.detekt.detekt
+
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
@@ -16,7 +18,8 @@ buildscript {
 }
 
 plugins {
-    id("io.gitlab.arturbosch.detekt").version(dependenices.Versions.Test.detekt)
+    id("io.gitlab.arturbosch.detekt").version(dependenices.Versions.Plugin.detekt)
+    id("com.github.ben-manes.versions").version(dependenices.Versions.Plugin.versionUpdater)
 }
 
 subprojects {
@@ -25,7 +28,7 @@ subprojects {
     }
 
     detekt {
-        toolVersion = dependenices.Versions.Test.detekt
+        toolVersion = dependenices.Versions.Plugin.detekt
         debug = true
         parallel = true
         input = files("src/main/java")
