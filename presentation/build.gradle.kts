@@ -58,7 +58,7 @@ kapt {
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to arrayOf("*.jar"))))
     implementation(project(":domain"))
-//    implementation(project(":data"))
+    implementation(project(":data"))
     implementation(project(":widget"))
     implementation(project(":ext"))
 

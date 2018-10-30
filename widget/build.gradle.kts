@@ -1,13 +1,9 @@
-import com.android.build.gradle.internal.tasks.JacocoTask
-import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
 import dependenices.Deps
 import dependenices.Versions
-import java.net.NetworkInterface
 
 plugins {
     id("com.android.library")
     kotlin("android")
-    kotlin("kapt")
     id("jacoco")
 }
 
@@ -29,7 +25,6 @@ android {
         getByName("debug") {
             isMinifyEnabled = false
             isTestCoverageEnabled = true
-            buildConfigField("String", "URL_SERVER", "\"http://${getLocalIp("en0")}:3000\"")
         }
     }
     lintOptions { isAbortOnError = false }
@@ -41,23 +36,13 @@ android {
 
 dependencies {
     implementation(fileTree(mapOf("dir" to "libs", "include" to arrayOf("*.jar"))))
-    implementation(project(":domain"))
     implementation(project(":ext"))
 
     implementation(Deps.Global.kotlin)
-    implementation(Deps.Global.coroutine)
-    implementation(Deps.Global.shaver)
-    implementation(Deps.Global.gson)
 
-    kapt(Deps.Data.roomAnnotation)
-    implementation(Deps.Data.room)
-
-    //region Internet & Image loading
-    implementation(Deps.Data.retrofit2)
-    implementation(Deps.Data.retrofit2AdapterCoroutine) {
-        exclude(group = "org.jetbrains.kotlinx", module = "kotlinx-coroutines-core")
-    }
-    //endregion
+    implementation(Deps.Widget.appcompat)
+    implementation(Deps.Widget.quickDialog)
+    implementation(Deps.Widget.constraintLayout)
 }
 
 tasks.withType<Test> {
@@ -89,11 +74,6 @@ tasks.withType<JacocoReport> {
                                                         "outputs/code-coverage/connected/*coverage.ec")))
 }
 
-// Get the ip address by interface name
-// en0 is WIFI interface
-fun getLocalIp(interfaceName: String) = NetworkInterface.getByName(interfaceName)
-    ?.interfaceAddresses
-    ?.find { it.address.hostAddress.length <= 15 }
-    ?.address
-    ?.hostAddress
-    .orEmpty()
+repositories {
+    mavenCentral()
+}
