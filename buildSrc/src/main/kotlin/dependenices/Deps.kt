@@ -12,7 +12,6 @@ object Deps {
         const val kotlin = "org.jetbrains.kotlin:kotlin-stdlib:${Versions.Kotlin.kotlinLib}"
         const val refelect = "org.jetbrains.kotlin:kotlin-reflect:${Versions.Kotlin.kotlinLib}"
         const val coroutine = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.Kotlin.kotlinCoroutine}"
-        const val coroutinesRx2 = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:${Versions.Kotlin.kotlinCoroutine}"
 
         const val rxJava2 = "io.reactivex.rxjava2:rxjava:${Versions.RxDep.rxJava2}"
         const val rxKotlin = "io.reactivex.rxjava2:rxkotlin:${Versions.RxDep.rxKotlin2}"
@@ -33,10 +32,13 @@ object Deps {
         const val junitCore = "androidx.test:core:${Versions.Test.jUnit}"
         const val junit = "androidx.test.ext:junit:${Versions.Test.jUnit}"
         const val kotlin = "org.jetbrains.kotlin:kotlin-test-junit:${Versions.Kotlin.kotlinLib}"
-        const val mockito = "com.nhaarman:mockito-kotlin:${Versions.Test.mockitoKotlin}"
-        const val assertj = "org.assertj:assertj-core:${Versions.Test.assertJ}"
+
+        const val assertk = "com.willowtreeapps.assertk:assertk-jvm:${Versions.Test.assertK}"
+
+        const val mockito = "com.nhaarman.mockitokotlin2:mockito-kotlin:${Versions.Test.mockitoKotlin}"
         const val powerMockJunit = "org.powermock:powermock-module-junit4:${Versions.Test.powerMockito}"
         const val powerMockito = "org.powermock:powermock-api-mockito2:${Versions.Test.powerMockito}"
+
         const val byteBuddy = "net.bytebuddy:byte-buddy:${Versions.Test.byteBuddy}"
         const val byteBuddyAgent = "net.bytebuddy:byte-buddy-agent:${Versions.Test.byteBuddy}"
         const val byteBuddyAndroid = "net.bytebuddy:byte-buddy-android:${Versions.Test.byteBuddy}"
@@ -65,8 +67,6 @@ object Deps {
         const val knifer = "com.devrapid.jieyi:kotlinknifer:${Versions.KotlinAndroidExt.kinfer}"
         const val androidCoroutine =
             "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.Kotlin.kotlinCoroutine}"
-
-        const val lifecycle = "androidx.lifecycle:lifecycle-extensions:${Versions.KotlinAndroidExt.aacLifecycle}"
 
         const val rxBus = "com.hwangjr.rxbus:rxbus:${Versions.RxDep.rxBus}"
         const val rxPermission = "com.tbruyelle.rxpermissions2:rxpermissions:${Versions.RxDep.rxPermission2}"
@@ -99,8 +99,8 @@ object Deps {
         const val materialChip = "com.github.pchmn:MaterialChipsInput:${Versions.Ui.materialChip}"
         const val cameraView = "com.otaliastudios:cameraview:${Versions.Ui.cameraView}"
 
-        const val appcompat = "androidx.appcompat:appcompat:${Versions.AndroidComponent.androidx}"
         const val materialDessign = "com.google.android.material:material:${Versions.AndroidComponent.androidx}"
+        const val appcompat = "androidx.appcompat:appcompat:${Versions.AndroidComponent.androidx}"
         const val annot = "androidx.annotation:annotation:${Versions.AndroidComponent.androidx}"
         const val recyclerview = "androidx.recyclerview:recyclerview:${Versions.AndroidComponent.androidx}"
         const val cardview = "androidx.cardview:cardview:${Versions.AndroidComponent.cardview}"
@@ -112,6 +112,9 @@ object Deps {
             "android.arch.navigation:navigation-fragment-ktx:${Versions.AndroidComponent.navigation}"
         const val navigationFragment =
             "android.arch.navigation:navigation-ui-ktx:${Versions.AndroidComponent.navigation}"
+        const val lifecycle = "androidx.lifecycle:lifecycle-extensions:${Versions.KotlinAndroidExt.aacLifecycle}"
+
+        const val idlingEspresso = "androidx.test.espresso:espresso-idling-resource:${Versions.Test.espresso}"
     }
 
     /**

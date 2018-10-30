@@ -112,18 +112,10 @@ dependencies {
     //endregion
 
     //region Firebase & Database
-    implementation(Presentation.firebaseCore) {
-        exclude group: 'com.android.support'
-    }
-    implementation(Presentation.firebaseDB) {
-        exclude group: 'com.android.support'
-    }
-    implementation(Presentation.firebaseVision) {
-        exclude group: 'com.android.support'
-    }
-    implementation(Presentation.firebaseMLImageLabel) {
-        exclude group: 'com.android.support'
-    }
+    implementation Presentation.firebaseCore
+    implementation Presentation.firebaseDB
+    implementation Presentation.firebaseVision
+    implementation Presentation.firebaseMLImageLabel
 //    implementation Presentation.cloudinary
     implementation Presentation.room
     implementation Presentation.mmkv
@@ -145,12 +137,15 @@ dependencies {
     implementation Presentation.coordinatorLayout
     implementation Presentation.navigationUi
     implementation Presentation.navigationFragment
+
+    implementation Presentation.idlingEspresso
     //endregion
 
     debugImplementation GlobalDebug.steho
 
     androidTestImplementation GlobalTest.junit
     androidTestImplementation GlobalTest.junitCore
+    androidTestImplementation GlobalTest.assertk
     androidTestImplementation PresentationTest.runner
     androidTestImplementation PresentationTest.espressoCore
     androidTestImplementation PresentationTest.kakao
