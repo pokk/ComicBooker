@@ -3,10 +3,6 @@ import dependenices.Versions
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.mockito_version = '2.16.0'
-    ext.test_support_version = '1.0.1'
-    ext.espresso_version = '3.0.1'
-
     repositories {
         google()
         jcenter()
