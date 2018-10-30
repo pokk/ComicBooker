@@ -3,7 +3,8 @@ package com.no1.taiwan.comicbooker.domain
 import com.no1.taiwan.comicbooker.domain.BookerResponse.Error
 import com.no1.taiwan.comicbooker.domain.BookerResponse.Success
 import kotlinx.coroutines.CancellationException
-import kotlinx.coroutines.IO
+import kotlinx.coroutines.Dispatchers.IO
+import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.async
 import kotlinx.coroutines.runBlocking
@@ -19,7 +20,7 @@ abstract class DeferredUsecase<T : Any, R : BaseUsecase.RequestValues> : BaseUse
             if (parentJob.isCancelled)
                 parentJob = Job()
 
-            async(IO, parent = parentJob) { Success(fetchCase()) }.await()
+            GlobalScope.async(IO + parentJob) { Success(fetchCase()) }.await()
         }
         catch (cancel: CancellationException) {
             cancel.printStackTrace()

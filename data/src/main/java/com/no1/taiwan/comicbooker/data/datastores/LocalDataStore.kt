@@ -2,7 +2,6 @@ package com.no1.taiwan.comicbooker.data.datastores
 
 import com.no1.taiwan.comicbooker.data.local.v1.BookerDao
 import com.no1.taiwan.comicbooker.domain.parameters.Parameterable
-import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
@@ -17,5 +16,5 @@ class LocalDataStore(
     override fun retrieveTest(parameters: Parameterable) = throw UnsupportedOperationException()
 
     override fun retrieveBookerData(parameters: Parameterable) =
-        GlobalScope.async(Dispatchers.Default, CoroutineStart.DEFAULT, null, { bookerDb.getAllData() })
+        GlobalScope.async(Dispatchers.Default) { bookerDb.getAllData() }
 }

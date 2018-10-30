@@ -9,10 +9,10 @@ import com.no1.taiwan.comicbooker.data.datastores.DataStore
 import com.no1.taiwan.comicbooker.data.local.cache.AbsCache
 import com.no1.taiwan.comicbooker.domain.parameters.Parameterable
 import com.no1.taiwan.comicbooker.domain.repositories.DataRepository
-import kotlinx.coroutines.CoroutineStart
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
+import kotlinx.coroutines.delay
 
 /**
  * The data repository for being responsible for selecting an appropriate data store to access
@@ -34,16 +34,17 @@ class BookerDataRepository constructor(
 
     // TODO(jieyi): 2018/09/19 Added try catch for get a mapper from di.
     override fun fetchTest(parameters: Parameterable) =
-        GlobalScope.async(Dispatchers.Default, CoroutineStart.DEFAULT, null, {
+        GlobalScope.async(Dispatchers.Default) {
+            delay(3000)
             val data = remote.retrieveTest(parameters).await()
             testMapper.toModelFrom(data)
-        })
+        }
 
     override fun fetchBooker(parameters: Parameterable) =
-        GlobalScope.async(Dispatchers.Default, CoroutineStart.DEFAULT, null, {
+        GlobalScope.async(Dispatchers.Default) {
             val data = local.retrieveBookerData(parameters).await()
             data.map(bookerMapper::toModelFrom)
-        })
+        }
 
     /**
      * Get a mapper object from the mapper pool.

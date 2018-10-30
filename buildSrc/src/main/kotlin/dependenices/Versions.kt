@@ -50,8 +50,8 @@ object Versions {
         const val aacLifecycle = "2.0.0"
         const val anko = "0.10.7-rc13"
         const val ktx = androidx
-        const val kinfer = "2.0.3"
-        const val shaver = "1.0.3"
+        const val kinfer = "2.1.0"
+        const val shaver = "1.1.0"
     }
 
     object AndroidArchitectureComponent {

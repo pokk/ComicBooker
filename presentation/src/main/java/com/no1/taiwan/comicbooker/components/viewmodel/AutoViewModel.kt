@@ -12,6 +12,7 @@ open class AutoViewModel : ViewModel() {
      * prevent a leak of this ViewModel.
      */
     override fun onCleared() {
+        // FIXME(jieyi): 2018-10-30 task couldn't stop.
         // Search all variables including private.
         this::class.java.declaredFields.forEach {
             val usecaseSuperclass = it.type.superclass

@@ -15,6 +15,7 @@ import kotlinx.android.synthetic.main.activity_main.et_input1
 import kotlinx.android.synthetic.main.activity_main.et_input2
 import kotlinx.android.synthetic.main.activity_main.navigation
 import kotlinx.android.synthetic.main.activity_main.tv_res
+import kotlinx.coroutines.Dispatchers
 import org.jetbrains.anko.sdk25.coroutines.onClick
 
 class MainActivity : AdvActivity<MainViewModel>() {
@@ -42,11 +43,11 @@ class MainActivity : AdvActivity<MainViewModel>() {
             peel { logw(it) } happenError { loge(it) } doWith this@MainActivity
         }
 
-        observeNonNull(vm.bookers) {
-            peel { logw(it) } happenError { loge(it) } doWith this@MainActivity
-        }
+//        observeNonNull(vm.bookers) {
+//            peel { logw(it) } happenError { loge(it) } doWith this@MainActivity
+//        }
 
-        btn_click.onClick {
+        btn_click.onClick(Dispatchers.Main) {
             val s = "${et_input1.text} + ${et_input2.text}"
 
             tv_res.text = s
@@ -56,8 +57,8 @@ class MainActivity : AdvActivity<MainViewModel>() {
     override fun onResume() {
         super.onResume()
 
-//        vm.fetchTest()
-        vm.fetchBooker()
+        vm.fetchTest()
+//        vm.fetchBooker()
     }
 
     override fun provideLayoutId() = R.layout.activity_main
