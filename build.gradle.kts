@@ -1,5 +1,3 @@
-import dependenices.Versions
-
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
@@ -7,13 +5,10 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
-
-        maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
-        maven { url "https://dl.bintray.com/kotlin/kotlin-dev" }
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.0-alpha02'
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Kotlin.kotlinLib}"
+        classpath("com.android.tools.build:gradle:3.4.0-alpha02")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${dependenices.Versions.Kotlin.kotlinLib}")
 
         // NOTE: Do not place your application dependencies here; they belong
         //  in the individual module build.gradle files
@@ -21,7 +16,7 @@ buildscript {
 }
 
 plugins {
-    id "io.gitlab.arturbosch.detekt" version "1.0.0.RC9.2"
+    id("io.gitlab.arturbosch.detekt").version(dependenices.Versions.Test.detekt)
 }
 
 subprojects {
@@ -30,7 +25,7 @@ subprojects {
     }
 
     detekt {
-        toolVersion = "1.0.0.RC9.2"
+        toolVersion = dependenices.Versions.Test.detekt
         debug = true
         parallel = true
         input = files("src/main/java")
@@ -53,13 +48,12 @@ allprojects {
         mavenCentral()
 
         // required to find the project's artifacts
-        maven { url "http://dl.bintray.com/kotlin/kotlin-eap" }
-        maven { url "https://www.jitpack.io" }
-        maven { url "https://dl.bintray.com/pokk/maven" }
-        maven { url "https://dl.bintray.com/kodein-framework/Kodein-DI/" }
+        maven(url = "https://www.jitpack.io")
+        maven(url = "https://dl.bintray.com/pokk/maven")
+        maven(url = "https://dl.bintray.com/kodein-framework/Kodein-DI/")
     }
 }
 
-task clean(type: Delete) {
-    delete rootProject.buildDir
+task("clean", Delete::class) {
+    delete = setOf(rootProject.buildDir)
 }

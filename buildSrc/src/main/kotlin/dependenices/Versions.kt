@@ -146,5 +146,7 @@ object Versions {
         const val mockitoAndroid = "2.23.0"
         const val mockk = "v1.8.9.kotlin13"
         const val byteBuddy = "1.8.12"
+
+        const val detekt = "1.0.0.RC9.2"
     }
 }
