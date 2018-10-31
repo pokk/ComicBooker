@@ -1,6 +1,7 @@
 import com.android.build.gradle.ProguardFiles.getDefaultProguardFile
 import dependenices.Deps
 import dependenices.Versions
+import org.jetbrains.kotlin.gradle.internal.AndroidExtensionsExtension
 
 plugins {
     id("com.android.application")
@@ -48,7 +49,12 @@ android {
     }
 }
 
-androidExtensions { isExperimental = true }
+androidExtensions {
+    configure(delegateClosureOf<AndroidExtensionsExtension> {
+        isExperimental = true
+    })
+}
+
 kapt {
     correctErrorTypes = true
     useBuildCache = true
