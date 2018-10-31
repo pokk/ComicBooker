@@ -20,7 +20,7 @@ abstract class DeferredUsecase<T : Any, R : BaseUsecase.RequestValues> : BaseUse
             if (parentJob.isCancelled)
                 parentJob = Job()
 
-            GlobalScope.async(IO + parentJob) { Success(fetchCase()) }.await()
+            GlobalScope.async(IO) { Success(fetchCase(parentJob)) }.await()
         }
         catch (cancel: CancellationException) {
             cancel.printStackTrace()
@@ -32,7 +32,7 @@ abstract class DeferredUsecase<T : Any, R : BaseUsecase.RequestValues> : BaseUse
         }
     }
 
-    abstract suspend fun fetchCase(): T
+    abstract suspend fun fetchCase(parentJob: Job): T
 
     protected fun attachParameter(λ: suspend (R) -> T) = runBlocking { requireNotNull(requestValues?.run { λ(this) }) }
 }
