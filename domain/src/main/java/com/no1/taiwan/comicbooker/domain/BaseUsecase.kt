@@ -1,7 +1,9 @@
 package com.no1.taiwan.comicbooker.domain
 
 import com.no1.taiwan.comicbooker.domain.BaseUsecase.RequestValues
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.isActive
+import kotlin.coroutines.CoroutineContext
 
 /**
  * Abstract class for a Use Case (Interactor in terms of Clean Architecture).
@@ -17,9 +19,9 @@ import kotlinx.coroutines.Job
 abstract class BaseUsecase<R : RequestValues> {
     /** Provide a common parameter variable for the children class. */
     var requestValues: R? = null
-    protected var parentJob = Job()
+    protected lateinit var parentJob: CoroutineContext
 
-    open fun abort() = parentJob.takeUnless { it.isCancelled }?.cancel() ?: true
+    open fun abort() = parentJob.takeIf(CoroutineContext::isActive)?.cancel() ?: Unit
 
     /** Interface for wrap a data for passing to a request.*/
     interface RequestValues

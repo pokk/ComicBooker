@@ -3,6 +3,7 @@ package com.no1.taiwan.comicbooker.domain
 import com.no1.taiwan.comicbooker.domain.BookerResponse.Error
 import com.no1.taiwan.comicbooker.domain.BookerResponse.Success
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
@@ -17,10 +18,11 @@ abstract class DeferredUsecase<T : Any, R : BaseUsecase.RequestValues> : BaseUse
         try {
             // If the parent job was cancelled that will happened an exception, that's
             // why we should create a new job instead.
-            if (parentJob.isCancelled)
-                parentJob = Job()
+            parentJob = Job() + IO
 
-            GlobalScope.async(IO) { Success(fetchCase(parentJob)) }.await()
+            GlobalScope.async(parentJob) {
+                Success(fetchCase())
+            }.await()
         }
         catch (cancel: CancellationException) {
             cancel.printStackTrace()
@@ -32,7 +34,7 @@ abstract class DeferredUsecase<T : Any, R : BaseUsecase.RequestValues> : BaseUse
         }
     }
 
-    abstract suspend fun fetchCase(parentJob: Job): T
+    protected abstract fun CoroutineScope.fetchCase(): T
 
     protected fun attachParameter(λ: suspend (R) -> T) = runBlocking { requireNotNull(requestValues?.run { λ(this) }) }
 }

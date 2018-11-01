@@ -9,11 +9,8 @@ import com.no1.taiwan.comicbooker.data.datastores.DataStore
 import com.no1.taiwan.comicbooker.data.local.cache.AbsCache
 import com.no1.taiwan.comicbooker.domain.parameters.Parameterable
 import com.no1.taiwan.comicbooker.domain.repositories.DataRepository
-import kotlinx.coroutines.Dispatchers.IO
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
 
 /**
  * The data repository for being responsible for selecting an appropriate data store to access
@@ -34,18 +31,15 @@ class BookerDataRepository constructor(
     private val bookerMapper by lazy { digDataMapper<BookerMapper>() }
 
     // TODO(jieyi): 2018/09/19 Added try catch for get a mapper from di.
-    override fun fetchTest(parameters: Parameterable, parentJob: Job) =
-        GlobalScope.async(IO + parentJob) {
-            delay(3000)
-            val data = remote.retrieveTest(parameters).await()
-            testMapper.toModelFrom(data)
-        }
+    override fun fetchTest(parameters: Parameterable, scope: CoroutineScope) = scope.async {
+        val data = remote.retrieveTest(parameters).await()
+        testMapper.toModelFrom(data)
+    }
 
-    override fun fetchBooker(parameters: Parameterable) =
-        GlobalScope.async(IO) {
-            val data = local.retrieveBookerData(parameters).await()
-            data.map(bookerMapper::toModelFrom)
-        }
+    override fun fetchBooker(parameters: Parameterable, scope: CoroutineScope) = scope.async {
+        val data = local.retrieveBookerData(parameters).await()
+        data.map(bookerMapper::toModelFrom)
+    }
 
     /**
      * Get a mapper object from the mapper pool.
