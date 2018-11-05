@@ -12,5 +12,4 @@ src/test/
 app/src/androidTest/
 app/src/test/
 buildSrc/build/
-gradle/wrapper/gradle-wrapper.jar
 gradlew.bat
