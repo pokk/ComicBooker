@@ -153,7 +153,7 @@ object Versions {
      * Related extension Plugins lib version.
      */
     object Plugin {
-        const val detekt = "1.0.0.RC9.2"
+        const val detekt = "1.0.0-RC10"
         const val versionUpdater = "0.20.0"
     }
 }
