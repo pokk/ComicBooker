@@ -46,5 +46,5 @@ dependencies {
 }
 
 apply {
-    from("https://raw.githubusercontent.com/pokk/JCenterUploader/master/AndroidJacoco.gradle.kts")
+    from("https://raw.githubusercontent.com/pokk/JCenterUploader/master/AndroidJacocoNew.gradle.kts")
 }
